@@ -4,28 +4,26 @@
 
 Time spent: **4** hours spent in total
 
+## Video Walkthrough
+
+A walkthrough of the layout for Por Vida Mobile using Figma:
+
+<img src='https://recordit.co/ljDTeQkJDs.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
+
 ## User Stories
 
 The following user stories are complete:
 
-- [ ] List of restaurants participating in ¡Por Vida!, including their contact information and address
-- [ ] The menus of participating restaurants (kids and adults)
-- [ ] An easy-to-use map of all participating retaurants
-- [ ] Admin sign in to allow updates to changes in restaurant menus/locations
-- [ ] A Spanish version of the mobile app
+- [ ] List of restaurants participating in Por Vida, including their contact information and address
+- [ ] The menus of the participating restaurants (including kid and adult menus)
+- [ ] An easy-to-use map of all participating restaurants
+- [ ] Settings to control (ie language settings)
 
 The following **additional** user stories are implemented:
 
-- [ ] Link to download the Healthy Trail PDF in Spanish and English
-- [ ] Links to extraneous information including business partners
-
-## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+- [ ] Admin sign in to allow updates to changes in restaurant information, including loction and menus
+- [ ] Link to download Healthy Trail PDF in multiple languages
+- [ ] Links to extraneous information included on the website (such as business partner information)
 
 ## Notes
 
@@ -35,7 +33,7 @@ Describe any challenges encountered while building the app.
 
 
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2020 Team TAMUSA
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
