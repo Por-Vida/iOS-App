@@ -1,27 +1,23 @@
-# *THE APP HERE*
+# *¡Por Vida! Mobile*
 
-**Name of your app** is a **Kind of** app using the **Whichever API**.
+**¡Por Vida! Mobile** is the mobile version of the City of San Antonio's "¡Por Vida!" website, which indicates retaurants located around the city of San Antonio, Texas, that cook healthier, affordable meals.
 
 Time spent: **X** hours spent in total
 
 ## User Stories
 
-The following  user stories are complete:
+The following user stories are complete:
 
-- [x] User Story #1
-- [ ] User Story #2
-- [ ] User Story #3
-- [x] Another Sottorry
-
-The following user stories are implemented:
-
-- [ ] User Story #4
-- [ ] User Story #5
+- [ ] List of restaurants participating in ¡Por Vida!, including their contact information and address
+- [ ] The menus of participating restaurants (kids and adults)
+- [ ] An easy-to-use map of all participating retaurants
+- [ ] Admin sign in to allow updates to changes in restaurant menus/locations
+- [ ] A Spanish version of the mobile app
 
 The following **additional** user stories are implemented:
 
-- [ ] User Story #6
-- [ ] User Story #7
+- [ ] Link to download the Healthy Trail PDF in Spanish and English
+- [ ] Links to extraneous information including business partners
 
 ## Video Walkthrough
 
