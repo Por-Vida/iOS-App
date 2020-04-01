@@ -26,7 +26,7 @@ The following **additional** user stories are implemented:
 - [ ] Links to extraneous information included on the website (such as business partner information)
 
 ## Wireframe
-<img src='https://i.imgur.com/xeRksFY.png' title='Por Vida Wireframe' width='' alt='Por Vida Wireframe'
+<img src='https://i.imgur.com/xeRksFY.png' title='Por Vida Wireframe' width='' alt='Por Vida Wireframe' />
 
 ## Model (in progress)
 | Property | Type | Description |
