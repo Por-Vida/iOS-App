@@ -31,10 +31,60 @@ The following **additional** user stories are implemented:
 ## Model (in progress)
 | Property | Type | Description |
 |----------|------|-------------|
-| currentLocation | 
-|
-|
-|
+| currentLocation | PFGeoPoint | The current location of the user |
+| restaurant | String | The restaurant a user wants to find |
+|restaurantLocation |PFGeoPoint|Current coordinates of restaurant|
+|address|String| Address of restaurant
+|phone|String| Phone number of resturant
+|website|String| Website of resturants
+|hours|String| Restaurants business hours|
+|menu|String| Por vida approve menu items
+|restaurantLogo|String| The restraurant's logo|
+
+## Networking
+
+* Main Menu:
+
+* Restaurants
+    * (Read/GET) - Query all restaurants in the database
+
+* Kids' Menu
+    * (Read/GET) - Query all restaurants that have a kids menu
+
+* Restaurant Menu
+    * (Read/GET) - Query the menu information about the selected restraurant
+
+* Restaurant Locations
+    * (Read/GET) - Query all restraurant locations
+    ```swift
+        let query = PFQuery(className:"Restaurant")
+        query.whereKey("restaurantLocation", equalTo:"restaurant")
+        query.findObjectsInBackground { (restaurants: [PFObject]?, error: Error?) in
+        if let error = error {
+            // Log details of the failure
+            print(error.localizedDescription)
+        } else if let restaurants = restaurants {
+            // The find succeeded.
+            print("Successfully retrieved \(restaurants.count) locations.")
+            // Display the address/locations of restaurants
+            for restaurant in restaurants {
+                print(restaurant.objectId as Any)
+            }
+        }}
+    ```
+    
+* Business Partners
+    * (No Queries)
+
+* Restraurant Details
+    * (Read/GET) - Query the details about the selected restraurant
+
+* Settings
+    * (No Queries)
+
+* Login Screen
+    * (Update/PUT?) - Query to login?
+
 
 
 ## Notes
