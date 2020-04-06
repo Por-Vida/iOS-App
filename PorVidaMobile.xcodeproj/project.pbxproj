@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051FB5B5612347909BE76964 /* Pods_PorVidaMobile_PorVidaMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D4B1A1B73F6744E3129BDC /* Pods_PorVidaMobile_PorVidaMobileUITests.framework */; };
+		4F0FAD9B7D75E4B5E74A7A24 /* Pods_PorVidaMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */; };
 		8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */; };
 		8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */; };
 		8B40EED2243BAD1600DE69B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EED1243BAD1600DE69B9 /* ViewController.swift */; };
@@ -15,6 +17,7 @@
 		8B40EEDA243BAD1900DE69B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */; };
 		8B40EEE5243BAD1900DE69B9 /* PorVidaMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EEE4243BAD1900DE69B9 /* PorVidaMobileTests.swift */; };
 		8B40EEF0243BAD1900DE69B9 /* PorVidaMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EEEF243BAD1900DE69B9 /* PorVidaMobileUITests.swift */; };
+		FC393B455691353EFC672DE1 /* Pods_PorVidaMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D2CF922AE5575823A85376 /* Pods_PorVidaMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F25FBA2CFABEB4D9927B1AD /* Pods-PorVidaMobile-PorVidaMobileUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile-PorVidaMobileUITests.debug.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile-PorVidaMobileUITests/Pods-PorVidaMobile-PorVidaMobileUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		24D2CF922AE5575823A85376 /* Pods_PorVidaMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PorVidaMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51DD24C4E1E889BB208A7AF6 /* Pods-PorVidaMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile.release.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile.release.xcconfig"; sourceTree = "<group>"; };
+		70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PorVidaMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40EECA243BAD1600DE69B9 /* PorVidaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorVidaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		8B40EEEB243BAD1900DE69B9 /* PorVidaMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PorVidaMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40EEEF243BAD1900DE69B9 /* PorVidaMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorVidaMobileUITests.swift; sourceTree = "<group>"; };
 		8B40EEF1243BAD1900DE69B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F40528D64ABA29BE0CD21A1 /* Pods-PorVidaMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile.debug.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		92B8E1033B207DD357D32EDE /* Pods-PorVidaMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-PorVidaMobileTests/Pods-PorVidaMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		96A95A531284D90E699F14BD /* Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile-PorVidaMobileUITests/Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D3FBFCD356C35B1AFDCB680 /* Pods-PorVidaMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobileTests.release.xcconfig"; path = "Target Support Files/Pods-PorVidaMobileTests/Pods-PorVidaMobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4D4B1A1B73F6744E3129BDC /* Pods_PorVidaMobile_PorVidaMobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PorVidaMobile_PorVidaMobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC393B455691353EFC672DE1 /* Pods_PorVidaMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F0FAD9B7D75E4B5E74A7A24 /* Pods_PorVidaMobileTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051FB5B5612347909BE76964 /* Pods_PorVidaMobile_PorVidaMobileUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3796B25966784D7616A05491 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24D2CF922AE5575823A85376 /* Pods_PorVidaMobile.framework */,
+				E4D4B1A1B73F6744E3129BDC /* Pods_PorVidaMobile_PorVidaMobileUITests.framework */,
+				70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E550C7B752BC32FB31F0891 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F40528D64ABA29BE0CD21A1 /* Pods-PorVidaMobile.debug.xcconfig */,
+				51DD24C4E1E889BB208A7AF6 /* Pods-PorVidaMobile.release.xcconfig */,
+				1F25FBA2CFABEB4D9927B1AD /* Pods-PorVidaMobile-PorVidaMobileUITests.debug.xcconfig */,
+				96A95A531284D90E699F14BD /* Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig */,
+				92B8E1033B207DD357D32EDE /* Pods-PorVidaMobileTests.debug.xcconfig */,
+				9D3FBFCD356C35B1AFDCB680 /* Pods-PorVidaMobileTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8B40EEC1243BAD1600DE69B9 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,8 @@
 				8B40EEE3243BAD1900DE69B9 /* PorVidaMobileTests */,
 				8B40EEEE243BAD1900DE69B9 /* PorVidaMobileUITests */,
 				8B40EECB243BAD1600DE69B9 /* Products */,
+				4E550C7B752BC32FB31F0891 /* Pods */,
+				3796B25966784D7616A05491 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B40EEF4243BAD1900DE69B9 /* Build configuration list for PBXNativeTarget "PorVidaMobile" */;
 			buildPhases = (
+				5578E2388E8082CE886FBD7C /* [CP] Check Pods Manifest.lock */,
 				8B40EEC6243BAD1600DE69B9 /* Sources */,
 				8B40EEC7243BAD1600DE69B9 /* Frameworks */,
 				8B40EEC8243BAD1600DE69B9 /* Resources */,
+				18DD64DA6DAEA93E7E1751EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B40EEF7243BAD1900DE69B9 /* Build configuration list for PBXNativeTarget "PorVidaMobileTests" */;
 			buildPhases = (
+				98F5E5CE287CC161ECE838A2 /* [CP] Check Pods Manifest.lock */,
 				8B40EEDC243BAD1900DE69B9 /* Sources */,
 				8B40EEDD243BAD1900DE69B9 /* Frameworks */,
 				8B40EEDE243BAD1900DE69B9 /* Resources */,
@@ -170,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B40EEFA243BAD1900DE69B9 /* Build configuration list for PBXNativeTarget "PorVidaMobileUITests" */;
 			buildPhases = (
+				A02837E8909B6D923A43E368 /* [CP] Check Pods Manifest.lock */,
 				8B40EEE7243BAD1900DE69B9 /* Sources */,
 				8B40EEE8243BAD1900DE69B9 /* Frameworks */,
 				8B40EEE9243BAD1900DE69B9 /* Resources */,
+				95DD3D0B4A2D7AA76D67A624 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +299,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18DD64DA6DAEA93E7E1751EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5578E2388E8082CE886FBD7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PorVidaMobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95DD3D0B4A2D7AA76D67A624 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PorVidaMobile-PorVidaMobileUITests/Pods-PorVidaMobile-PorVidaMobileUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PorVidaMobile-PorVidaMobileUITests/Pods-PorVidaMobile-PorVidaMobileUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PorVidaMobile-PorVidaMobileUITests/Pods-PorVidaMobile-PorVidaMobileUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98F5E5CE287CC161ECE838A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PorVidaMobileTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A02837E8909B6D923A43E368 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PorVidaMobile-PorVidaMobileUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B40EEC6243BAD1600DE69B9 /* Sources */ = {
@@ -432,6 +581,7 @@
 		};
 		8B40EEF5243BAD1900DE69B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F40528D64ABA29BE0CD21A1 /* Pods-PorVidaMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +600,7 @@
 		};
 		8B40EEF6243BAD1900DE69B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51DD24C4E1E889BB208A7AF6 /* Pods-PorVidaMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +619,7 @@
 		};
 		8B40EEF8243BAD1900DE69B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92B8E1033B207DD357D32EDE /* Pods-PorVidaMobileTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +642,7 @@
 		};
 		8B40EEF9243BAD1900DE69B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D3FBFCD356C35B1AFDCB680 /* Pods-PorVidaMobileTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +665,7 @@
 		};
 		8B40EEFB243BAD1900DE69B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F25FBA2CFABEB4D9927B1AD /* Pods-PorVidaMobile-PorVidaMobileUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +686,7 @@
 		};
 		8B40EEFC243BAD1900DE69B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A95A531284D90E699F14BD /* Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
