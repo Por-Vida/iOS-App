@@ -17,6 +17,9 @@
 		8B40EEDA243BAD1900DE69B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */; };
 		8B40EEE5243BAD1900DE69B9 /* PorVidaMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EEE4243BAD1900DE69B9 /* PorVidaMobileTests.swift */; };
 		8B40EEF0243BAD1900DE69B9 /* PorVidaMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EEEF243BAD1900DE69B9 /* PorVidaMobileUITests.swift */; };
+		8BEAAC1224428DC60067CBAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAAC1124428DC60067CBAD /* MainViewController.swift */; };
+		8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */; };
+		8BEAAC1624428E0C0067CBAD /* ProgrammerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */; };
 		FC393B455691353EFC672DE1 /* Pods_PorVidaMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D2CF922AE5575823A85376 /* Pods_PorVidaMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		8B40EEEB243BAD1900DE69B9 /* PorVidaMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PorVidaMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40EEEF243BAD1900DE69B9 /* PorVidaMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorVidaMobileUITests.swift; sourceTree = "<group>"; };
 		8B40EEF1243BAD1900DE69B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BEAAC1124428DC60067CBAD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammerViewController.swift; sourceTree = "<group>"; };
 		8F40528D64ABA29BE0CD21A1 /* Pods-PorVidaMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile.debug.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		92B8E1033B207DD357D32EDE /* Pods-PorVidaMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-PorVidaMobileTests/Pods-PorVidaMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		96A95A531284D90E699F14BD /* Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile-PorVidaMobileUITests/Pods-PorVidaMobile-PorVidaMobileUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 				8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */,
 				8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */,
 				8B40EED1243BAD1600DE69B9 /* ViewController.swift */,
+				8BEAAC1124428DC60067CBAD /* MainViewController.swift */,
+				8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */,
+				8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */,
 				8B40EED6243BAD1900DE69B9 /* Assets.xcassets */,
 				8B40EED3243BAD1600DE69B9 /* Main.storyboard */,
 				8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */,
@@ -410,6 +419,9 @@
 				8B40EED2243BAD1600DE69B9 /* ViewController.swift in Sources */,
 				8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */,
 				8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */,
+				8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */,
+				8BEAAC1624428E0C0067CBAD /* ProgrammerViewController.swift in Sources */,
+				8BEAAC1224428DC60067CBAD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
