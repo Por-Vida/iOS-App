@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 				92B8E1033B207DD357D32EDE /* Pods-PorVidaMobileTests.debug.xcconfig */,
 				9D3FBFCD356C35B1AFDCB680 /* Pods-PorVidaMobileTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,8 +142,8 @@
 				8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */,
 				8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */,
 				8B40EED1243BAD1600DE69B9 /* ViewController.swift */,
-				8B40EED3243BAD1600DE69B9 /* Main.storyboard */,
 				8B40EED6243BAD1900DE69B9 /* Assets.xcassets */,
+				8B40EED3243BAD1600DE69B9 /* Main.storyboard */,
 				8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */,
 				8B40EEDB243BAD1900DE69B9 /* Info.plist */,
 			);
