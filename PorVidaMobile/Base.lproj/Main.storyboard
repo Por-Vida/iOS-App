@@ -61,7 +61,7 @@
         <!--Login-->
         <scene sceneID="Gcc-qE-mAd">
             <objects>
-                <viewController title="Login" modalPresentationStyle="fullScreen" id="yKS-Jg-7wn" sceneMemberID="viewController">
+                <viewController title="Login" modalPresentationStyle="fullScreen" id="yKS-Jg-7wn" customClass="LoginViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QGH-tf-gBJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,15 @@
                                     <constraint firstAttribute="height" constant="80" id="LlP-xi-xU5"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HW6-Yw-URI">
+                                <rect key="frame" x="128" y="296" width="280" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="KCq-wd-HHv" kind="presentation" id="1Dy-WJ-fbm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -109,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDQ-ll-b5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="-595"/>
+            <point key="canvasLocation" x="982.60869565217399" y="-595.3125"/>
         </scene>
         <!--ManagerPage-->
         <scene sceneID="9ap-XE-Qod">
@@ -143,7 +152,7 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Main" id="BYZ-38-t0r" customClass="ViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -209,7 +218,7 @@
         <!--ProgrammerPage-->
         <scene sceneID="aIG-zd-JRx">
             <objects>
-                <viewController title="ProgrammerPage" id="KCq-wd-HHv" sceneMemberID="viewController">
+                <viewController title="ProgrammerPage" modalPresentationStyle="fullScreen" id="KCq-wd-HHv" customClass="ProgrammerViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uHm-Ea-RUg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

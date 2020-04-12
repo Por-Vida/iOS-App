@@ -11,7 +11,6 @@
 		4F0FAD9B7D75E4B5E74A7A24 /* Pods_PorVidaMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */; };
 		8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */; };
 		8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */; };
-		8B40EED2243BAD1600DE69B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EED1243BAD1600DE69B9 /* ViewController.swift */; };
 		8B40EED5243BAD1600DE69B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B40EED3243BAD1600DE69B9 /* Main.storyboard */; };
 		8B40EED7243BAD1900DE69B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B40EED6243BAD1900DE69B9 /* Assets.xcassets */; };
 		8B40EEDA243BAD1900DE69B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */; };
@@ -48,7 +47,6 @@
 		8B40EECA243BAD1600DE69B9 /* PorVidaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorVidaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8B40EED1243BAD1600DE69B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8B40EED4243BAD1600DE69B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B40EED6243BAD1900DE69B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B40EED9243BAD1900DE69B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			children = (
 				8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */,
 				8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */,
-				8B40EED1243BAD1600DE69B9 /* ViewController.swift */,
 				8BEAAC1124428DC60067CBAD /* MainViewController.swift */,
 				8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */,
 				8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */,
@@ -416,7 +413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B40EED2243BAD1600DE69B9 /* ViewController.swift in Sources */,
 				8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */,
 				8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */,
 				8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */,
