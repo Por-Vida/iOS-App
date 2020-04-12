@@ -10,6 +10,16 @@ import UIKit
 import Parse
 
 class ProgrammerViewController: UIViewController {
+    var name: String!
+    var location: String!
+    var phone: String!
+    var website: String!
+    var hours: String!
+    var breakfastMenu: [String] = []//We append these arrays
+    var lunchMenu: [String] = []
+    var dinnerMenu: [String] = []
+    var kidsMenu: [String] = []
+    var sidesMenu: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +28,17 @@ class ProgrammerViewController: UIViewController {
     }
     
     func uploadRestaurantInfo() {
-        let restaurant = PFObject(className: "Restaurants")
-        restaurant["name"] = "McDonalds"
-        restaurant["location"] = "An address"
-        restaurant["menu"] = "Items"
-        restaurant["phone"] = "(000)000-0000"
-        restaurant["website"] = "nul"
-        restaurant["hours"] = "Mon-Fri 12am-12pm"
+        let restaurant = PFObject(className: "\(name)")
+        //restaurant["name"] = "McDonalds"
+        restaurant["location"] = location
+        restaurant["phone"] = phone
+        restaurant["website"] = website
+        restaurant["hours"] = hours
+        restaurant["breakfastMenu"] = breakfastMenu
+        restaurant["lunchMenu"] = lunchMenu
+        restaurant["dinnerMenu"] = dinnerMenu
+        restaurant["sidesMenu"] = sidesMenu
+        restaurant["kidMenu"] = kidsMenu
         
         restaurant.saveInBackground { (success, error) in
             if success {
