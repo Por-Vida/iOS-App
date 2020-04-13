@@ -53,7 +53,7 @@ class ProgrammerViewController: UIViewController {
     }
     
     @IBAction func onBack(_ sender: Any) {
-        performSegue(withIdentifier: "toMain", sender: nil)//Causes some window hierarchy warning
+        dismiss(animated: true, completion: nil)
     }
     
     
