@@ -1,14 +1,14 @@
 //
-//  LoginViewController.swift
+//  SettingsViewController.swift
 //  PorVidaMobile
 //
-//  Created by cory on 4/11/20.
+//  Created by cory on 4/13/20.
 //  Copyright © 2020 BigByteDevelopment. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

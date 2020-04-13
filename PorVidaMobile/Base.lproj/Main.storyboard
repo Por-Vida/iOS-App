@@ -10,19 +10,19 @@
         <!--Settings-->
         <scene sceneID="hiK-uT-tYY">
             <objects>
-                <viewController title="Settings" modalPresentationStyle="fullScreen" id="beR-5y-bNH" sceneMemberID="viewController">
+                <viewController title="Settings" modalPresentationStyle="fullScreen" id="beR-5y-bNH" customClass="SettingsViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yaf-QO-dWD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKf-b4-Oyp">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKf-b4-Oyp" userLabel="Header">
                                 <rect key="frame" x="0.0" y="44" width="414" height="150"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.1529411765" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yvk-i6-851">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yvk-i6-851" userLabel="Footer">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKT-bC-N1G">
@@ -33,6 +33,9 @@
                                         <state key="normal" title="Back">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBack:" destination="beR-5y-bNH" eventType="touchUpInside" id="cR2-Jb-1nm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.38431372549999998" green="0.70980392160000005" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="150" id="8Cc-kx-3ee"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7w-Hh-nyh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7w-Hh-nyh" userLabel="Footer">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mul-2R-adq">
@@ -87,6 +90,9 @@
                                         <state key="normal" title="Back">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBack:" destination="yKS-Jg-7wn" eventType="touchUpInside" id="ymU-is-JbN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.38431372549999998" green="0.70980392160000005" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -100,7 +106,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="KCq-wd-HHv" kind="presentation" id="1Dy-WJ-fbm"/>
+                                    <segue destination="KCq-wd-HHv" kind="presentation" identifier="toProgPage" id="1Dy-WJ-fbm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,7 +134,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z3-3i-dYM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z3-3i-dYM" userLabel="Footer">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <color key="backgroundColor" red="0.38431372549999998" green="0.70980392160000005" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -152,12 +158,12 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="MainViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5M-xO-Fuj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5M-xO-Fuj" userLabel="Header">
                                 <rect key="frame" x="0.0" y="44" width="414" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8L-BK-fc8">
@@ -169,7 +175,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="beR-5y-bNH" kind="presentation" id="Z4A-GJ-lrX"/>
+                                            <segue destination="beR-5y-bNH" kind="presentation" identifier="toSettings" id="Z4A-GJ-lrX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOr-eN-lCY">
@@ -181,7 +187,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="yKS-Jg-7wn" kind="presentation" id="jym-l0-15r"/>
+                                            <segue destination="yKS-Jg-7wn" kind="presentation" identifier="toLogin" id="jym-l0-15r"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -193,7 +199,7 @@
                                     <constraint firstAttribute="height" constant="150" id="7r5-5N-WkB"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFX-2d-T4w">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFX-2d-T4w" userLabel="Footer">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <color key="backgroundColor" red="0.38431372549019605" green="0.70980392156862748" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -223,8 +229,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tw-ak-rGy">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tw-ak-rGy" userLabel="Footer">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJr-Vd-FQM">
+                                        <rect key="frame" x="147" y="23" width="120" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94439837149999994" green="0.95374885040000001" blue="0.95374885040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onBack:" destination="KCq-wd-HHv" eventType="touchUpInside" id="MyR-dw-2DT"/>
+                                            <action selector="onBack:" destination="yKS-Jg-7wn" eventType="touchUpInside" id="PIU-LS-2Il"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="toMain" id="Giu-dl-v5g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.38431372549999998" green="0.70980392160000005" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>

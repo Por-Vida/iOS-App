@@ -20,6 +20,7 @@ class ProgrammerViewController: UIViewController {
     var dinnerMenu: [String] = []
     var kidsMenu: [String] = []
     var sidesMenu: [String] = []
+    var id: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class ProgrammerViewController: UIViewController {
     func uploadRestaurantInfo() {
         let restaurant = PFObject(className: "\(name)")
         //restaurant["name"] = "McDonalds"
+        restaurant["id"] = id
         restaurant["location"] = location
         restaurant["phone"] = phone
         restaurant["website"] = website
@@ -49,6 +51,11 @@ class ProgrammerViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func onBack(_ sender: Any) {
+        performSegue(withIdentifier: "toMain", sender: nil)//Causes some window hierarchy warning
+    }
+    
     
 
     /*
