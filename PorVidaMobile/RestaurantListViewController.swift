@@ -10,12 +10,12 @@ import UIKit
 import Parse
 
 class RestaurantListViewController: UIViewController {
-    @IBOutlet weak var newRestaurantField: UITextField!
-    @IBOutlet weak var restaurantLocationView: UIView!//isHidden should always start as "true"
-    @IBOutlet weak var streetAddressField: UITextField!
-    @IBOutlet weak var cityField: UITextField!
-    @IBOutlet weak var stateField: UITextField!
-    @IBOutlet weak var zipCodeField: UITextField!
+    @IBOutlet weak var newRestaurantField: UITextField!//Field that takes new restaurant name
+    @IBOutlet weak var restaurantLocationView: UIView!//View that appears to create new restaurant; always starts as hidden
+    @IBOutlet weak var streetAddressField: UITextField!//Restaurant street address
+    @IBOutlet weak var cityField: UITextField!//Restaurant city
+    @IBOutlet weak var stateField: UITextField!//Restaurant state; might not be neccessary
+    @IBOutlet weak var zipCodeField: UITextField!//Restaurant zip code
     
 
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class RestaurantListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func onRestaurantSubmit(_ sender: Any) {
+        //Check that all values are possible; classname will be restaurant-[Location]
         print("Creating restaurant")
         //Update the tableview
     }
@@ -49,16 +50,14 @@ class RestaurantListViewController: UIViewController {
         let alert = UIAlertController(title: "You Are About to Make a New Restaurant", message: "You are about to create a new restaurant \"\(restaurantName)\". Are you sure you want to continue?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
             self.restaurantLocationView.isHidden = false
-            self.createRestaurant()
+            //self.createRestaurant()
             //print("Created new restaurant \(restaurantName)")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func createRestaurant() {
-        
-    }
+    //func createRestaurant() {}
     
     func updateView() {}
     

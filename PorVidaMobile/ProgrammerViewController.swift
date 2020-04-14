@@ -10,17 +10,17 @@ import UIKit
 import Parse
 
 class ProgrammerViewController: UIViewController {
-    var name: String!
-    var location: String!
-    var phone: String!
-    var website: String!
-    var hours: String!
-    var breakfastMenu: [String] = []//We append these arrays
-    var lunchMenu: [String] = []
-    var dinnerMenu: [String] = []
-    var kidsMenu: [String] = []
-    var sidesMenu: [String] = []
-    var id: Int = 0
+    var name: String!//Name of the restaurant
+    var location: String!//Location of the restaurant
+    var phone: String!//Restaurant phone number
+    var website: String!//Restaurant phone number
+    var hours: String!//Restaurant hours
+    var breakfastMenu: [String] = []//Breakfast menu for restaurant
+    var lunchMenu: [String] = []//Lunch menu for restaurant
+    var dinnerMenu: [String] = []//Dinner menu for restaurant
+    var kidsMenu: [String] = []//Kids menu for restaurant
+    var sidesMenu: [String] = []//Sides menu for restaurant
+    var id: Int = 0//Restaurant ID
 
     override func viewDidLoad() {
         super.viewDidLoad()
