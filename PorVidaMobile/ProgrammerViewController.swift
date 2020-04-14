@@ -30,6 +30,7 @@ class ProgrammerViewController: UIViewController {
     
     func uploadRestaurantInfo() {
         let restaurant = PFObject(className: "\(name)")
+        //let rest = 
         //restaurant["name"] = "McDonalds"
         restaurant["id"] = id
         restaurant["location"] = location

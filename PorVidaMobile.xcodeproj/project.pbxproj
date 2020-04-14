@@ -18,6 +18,7 @@
 		8B40EEF0243BAD1900DE69B9 /* PorVidaMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EEEF243BAD1900DE69B9 /* PorVidaMobileUITests.swift */; };
 		8B74EDAA2444EFF700B86FF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74EDA92444EFF700B86FF9 /* SettingsViewController.swift */; };
 		8B74EDAC2444F39600B86FF9 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74EDAB2444F39600B86FF9 /* RestaurantListViewController.swift */; };
+		8B74EDB024455E4E00B86FF9 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74EDAF24455E4E00B86FF9 /* RestaurantCell.swift */; };
 		8BEAAC1224428DC60067CBAD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAAC1124428DC60067CBAD /* MainViewController.swift */; };
 		8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */; };
 		8BEAAC1624428E0C0067CBAD /* ProgrammerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */; };
@@ -61,6 +62,7 @@
 		8B40EEF1243BAD1900DE69B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B74EDA92444EFF700B86FF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8B74EDAB2444F39600B86FF9 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
+		8B74EDAF24455E4E00B86FF9 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		8BEAAC1124428DC60067CBAD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammerViewController.swift; sourceTree = "<group>"; };
@@ -149,11 +151,12 @@
 			children = (
 				8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */,
 				8B40EECF243BAD1600DE69B9 /* SceneDelegate.swift */,
-				8BEAAC1124428DC60067CBAD /* MainViewController.swift */,
 				8BEAAC1324428DEC0067CBAD /* LoginViewController.swift */,
-				8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */,
+				8BEAAC1124428DC60067CBAD /* MainViewController.swift */,
 				8B74EDA92444EFF700B86FF9 /* SettingsViewController.swift */,
+				8BEAAC1524428E0C0067CBAD /* ProgrammerViewController.swift */,
 				8B74EDAB2444F39600B86FF9 /* RestaurantListViewController.swift */,
+				8B74EDAF24455E4E00B86FF9 /* RestaurantCell.swift */,
 				8B40EED6243BAD1900DE69B9 /* Assets.xcassets */,
 				8B40EED3243BAD1600DE69B9 /* Main.storyboard */,
 				8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */,
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B74EDB024455E4E00B86FF9 /* RestaurantCell.swift in Sources */,
 				8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */,
 				8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */,
 				8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */,
