@@ -10,10 +10,7 @@ import UIKit
 import Parse
 
 class ProgrammerViewController: UIViewController {
-    var name: String!//Name of the restaurant
-    var location: String!//Location of the restaurant
-    var phone: String!//Restaurant phone number
-    var website: String!//Restaurant phone number
+    //var name: String!//Name of the restaurant
     var hours: String!//Restaurant hours
     var breakfastMenu: [String] = []//Breakfast menu for restaurant
     var lunchMenu: [String] = []//Lunch menu for restaurant
@@ -29,13 +26,12 @@ class ProgrammerViewController: UIViewController {
     }
     
     func uploadRestaurantInfo() {
-        let restaurant = PFObject(className: "\(name)")
+        let restaurant = PFObject(className: "Restaurant")
+        let rest = PFQuery(className: "Restaurant")
+        
         //let rest = 
         //restaurant["name"] = "McDonalds"
-        restaurant["id"] = id
-        restaurant["location"] = location
-        restaurant["phone"] = phone
-        restaurant["website"] = website
+
         restaurant["hours"] = hours
         restaurant["breakfastMenu"] = breakfastMenu
         restaurant["lunchMenu"] = lunchMenu
