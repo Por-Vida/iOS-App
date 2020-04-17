@@ -9,7 +9,10 @@
 import UIKit
 import Parse
 
-class RestaurantListViewController: UIViewController {
+class RestaurantListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     @IBOutlet weak var newRestaurantField: UITextField!//Field that takes new restaurant name
     @IBOutlet weak var restaurantLocationView: UIView!//View that appears to create new restaurant; always starts as hidden
     @IBOutlet weak var streetAddressField: UITextField!//Restaurant street address
@@ -22,13 +25,68 @@ class RestaurantListViewController: UIViewController {
     var phone: String!//Restaurant phone number
     var website: String!//Restaurant phone number
     var restaurantName: String = ""// = newRestaurantField.text
+    var restaurantTitle = [PFObject]()//Might be a problem
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let pull = PFQuery(className: "Restaurant")
+        pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
+        
+        pull.findObjectsInBackground { (title, error) in
+            if title != nil {
+                self.restaurantTitle = title!
+                self.tableView.reloadData()
+            }
+        }
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //return restaurantTitle.count
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //let title = restaurantTitle[section]
+        return restaurantTitle.count//According to Twitter, this might need to be a NSDicationary
+    }
+    
+    /*
+     Prepares the cell to show details requested (in our case, basic restaurant title)
+     */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        //let user = restaurantTitle[indexPath.row]["user"] as! PFObject
+        let name = restaurantTitle[indexPath.row]["name"] as! String
+        print("THE NAME: \(name)")
+        let managerLast = (restaurantTitle[indexPath.row]["managerLast"]/* as! String*/) ?? "Last"
+        let managerFirst = (restaurantTitle[indexPath.row]["managerFirst"] /*as! String*/) ?? "First"
+        let street = restaurantTitle[indexPath.row]["street"] as! String
+        let city = restaurantTitle[indexPath.row]["city"] as! String
+        let state = restaurantTitle[indexPath.row]["state"] as! String
+        let zip = restaurantTitle[indexPath.row]["zip"] as! String
+        
+        let location = "\(street), \(city), \(state), \(zip)"
+        let manager = "\(managerLast), \(managerFirst)"
+        let title = "\(name) - \(manager)"
+        
+        cell.location.text = location
+        cell.restaurant.text = title
+        //cell.restaurant.test
+        
+        return cell
+    }
+    
     @IBAction func onRestaurantSubmit(_ sender: Any) {
         //Check that all values are possible; classname will be restaurant-[Location]
         var street: String = "Default"
@@ -65,16 +123,22 @@ class RestaurantListViewController: UIViewController {
                 //Create new PFObject
                 let restaurant = PFObject(className: "Restaurant")
                 restaurant["name"] = self.restaurantName
-                restaurant["location"] = self.location
+                //restaurant["location"] = self.location
+                restaurant["street"] = street
+                restaurant["city"] = city
+                restaurant["state"] = state
+                restaurant["zip"] = zip
                 
                 restaurant.saveInBackground { (success, error) in
                     if success {
-                        self.dismiss(animated: true, completion: nil)
+                        //self.dismiss(animated: true, completion: nil)
                         print("Saved")
                     } else {
                         print("\(error)")
                     }
                 }
+                
+                
                 
                 self.restaurantLocationView.isHidden = true
                 self.newRestaurantField.text = ""
@@ -83,12 +147,14 @@ class RestaurantListViewController: UIViewController {
                 self.stateField.text = ""
                 self.zipCodeField.text = ""
                 print("Creating restaurant at: \(self.location)")
+                print("Here")
                 
             }))
+            print("there")
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
+            print("Again")
             
-
         }
         //Update the tableview
     }
