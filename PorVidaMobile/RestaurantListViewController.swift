@@ -42,6 +42,7 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         
         let pull = PFQuery(className: "Restaurant")
         pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
+        //pull.coun
         
         pull.findObjectsInBackground { (title, error) in
             if title != nil {
