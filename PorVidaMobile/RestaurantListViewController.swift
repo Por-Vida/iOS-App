@@ -10,8 +10,7 @@ import UIKit
 import Parse
 
 class RestaurantListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tableView: UITableView!//The tableview of restaurants
     
     @IBOutlet weak var newRestaurantField: UITextField!//Field that takes new restaurant name
     @IBOutlet weak var restaurantLocationView: UIView!//View that appears to create new restaurant; always starts as hidden
@@ -19,13 +18,16 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var cityField: UITextField!//Restaurant city
     @IBOutlet weak var stateField: UITextField!//Restaurant state; might not be neccessary
     @IBOutlet weak var zipCodeField: UITextField!//Restaurant zip code
+    @IBOutlet weak var managerFirstField: UITextField!//First name of manager
+    @IBOutlet weak var managerLastField: UITextField!//Last name of manager
+    //Note: State and city can be removed, and added automatically, and a manager middle name can be included
     
-    var id: Int!
+    var id: Int!//A counter for restaurants
     var location: String = ""//Location of the restaurant
     var phone: String!//Restaurant phone number
     var website: String!//Restaurant phone number
     var restaurantName: String = ""// = newRestaurantField.text
-    var restaurantTitle = [PFObject]()//Might be a problem
+    var restaurantObj = [PFObject]()//Restaurant name and manager
     
     
     override func viewDidLoad() {
@@ -46,19 +48,19 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         
         pull.findObjectsInBackground { (title, error) in
             if title != nil {
-                self.restaurantTitle = title!
+                self.restaurantObj = title!
                 self.tableView.reloadData()
             }
         }
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         //return restaurantTitle.count
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //let title = restaurantTitle[section]
-        return restaurantTitle.count//According to Twitter, this might need to be a NSDicationary
+        return restaurantObj.count
     }
     
     /*
@@ -68,14 +70,14 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         //let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
         //let user = restaurantTitle[indexPath.row]["user"] as! PFObject
-        let name = restaurantTitle[indexPath.row]["name"] as! String
-        print("THE NAME: \(name)")
-        let managerLast = (restaurantTitle[indexPath.row]["managerLast"]/* as! String*/) ?? "Last"
-        let managerFirst = (restaurantTitle[indexPath.row]["managerFirst"] /*as! String*/) ?? "First"
-        let street = restaurantTitle[indexPath.row]["street"] as! String
-        let city = restaurantTitle[indexPath.row]["city"] as! String
-        let state = restaurantTitle[indexPath.row]["state"] as! String
-        let zip = restaurantTitle[indexPath.row]["zip"] as! String
+        let name = restaurantObj[indexPath.row]["name"] as! String
+        //print("THE NAME: \(name)")
+        let managerLast = restaurantObj[indexPath.row]["managerLast"] as! String
+        let managerFirst = restaurantObj[indexPath.row]["managerFirst"] as! String
+        let street = restaurantObj[indexPath.row]["street"] as! String
+        let city = restaurantObj[indexPath.row]["city"] as! String
+        let state = restaurantObj[indexPath.row]["state"] as! String
+        let zip = restaurantObj[indexPath.row]["zip"] as! String
         
         let location = "\(street), \(city), \(state), \(zip)"
         let manager = "\(managerLast), \(managerFirst)"
@@ -88,12 +90,18 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
+    /*
+     Uses parameters taken from storyboard to create a new restaurant object
+     */
     @IBAction func onRestaurantSubmit(_ sender: Any) {
         //Check that all values are possible; classname will be restaurant-[Location]
         var street: String = "Default"
         var city: String = "Default"
         var state: String = "Default"
         var zip: String = "Default"
+        var managerLast = "Default"
+        var managerFirst = "Default"
+        
         var restaurant = PFObject(className: "Restaurant")
         
         if !streetAddressField.text!.isEmpty {
@@ -109,8 +117,14 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         if !zipCodeField.text!.isEmpty {
             zip = zipCodeField.text!
         }
+        if !managerFirstField.text!.isEmpty {
+            managerFirst = managerFirstField.text!
+        }
+        if !managerLastField.text!.isEmpty {
+            managerLast = managerLastField.text!
+        }
         
-        if (street == "Default" || city == "Default" || state == "Default" || zip == "Default") {
+        if (street == "Default" || city == "Default" || state == "Default" || zip == "Default" || managerFirst == "Default" || managerLast == "Default") {
             let alert = UIAlertController(title: "Missing Information", message: "You have not filled all of the blanks. Please go back and fill the blanks with required information.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
             }))
@@ -129,6 +143,8 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
                 restaurant["city"] = city
                 restaurant["state"] = state
                 restaurant["zip"] = zip
+                restaurant["managerFirst"] = managerFirst
+                restaurant["managerLast"] = managerLast
                 
                 restaurant.saveInBackground { (success, error) in
                     if success {
@@ -147,6 +163,8 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
                 self.cityField.text = ""
                 self.stateField.text = ""
                 self.zipCodeField.text = ""
+                self.managerLastField.text = ""
+                self.managerFirstField.text = ""
                 print("Creating restaurant at: \(self.location)")
                 print("Here")
                 
@@ -160,13 +178,18 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         //Update the tableview
     }
     
+    /*
+     Cancels the restaurant creation
+     */
     @IBAction func onCancel(_ sender: Any) {
         restaurantLocationView.isHidden = true
         print("Cancelling")
         //Wipe all the fields in the restLocView
     }
     
-    
+    /*
+     Creates the new restaurant name
+     */
     @IBAction func onSubmit(_ sender: Any) {
         
         if !newRestaurantField.text!.isEmpty {
@@ -188,23 +211,23 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     //
     //    }
     
-    //func createRestaurant() {}
-    
-    func updateView() {}
-    
-    
     @IBAction func onBack(_ sender: Any) {
+        print("An error?")//This may be cause of a warning about window heirachy
         performSegue(withIdentifier: "toMain", sender: nil)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        print("Transition from cell")
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let restaurant = restaurantObj[indexPath.row]
+        let restaurantDetails = segue.destination as! RestaurantDetailViewController
+        restaurantDetails.restaurantObj = restaurantObj
+    }
     
 }

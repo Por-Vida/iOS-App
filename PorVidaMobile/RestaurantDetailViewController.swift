@@ -1,16 +1,16 @@
 //
-//  ProgrammerViewController.swift
+//  RestaurantDetailViewController.swift
 //  PorVidaMobile
 //
-//  Created by cory on 4/11/20.
+//  Created by cory on 4/18/20.
 //  Copyright © 2020 BigByteDevelopment. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class ProgrammerViewController: UIViewController {
-    //var name: String!//Name of the restaurant
+class RestaurantDetailViewController: UIViewController {
+    
     var hours: String!//Restaurant hours
     var breakfastMenu: [String] = []//Breakfast menu for restaurant
     var lunchMenu: [String] = []//Lunch menu for restaurant
@@ -18,10 +18,11 @@ class ProgrammerViewController: UIViewController {
     var kidsMenu: [String] = []//Kids menu for restaurant
     var sidesMenu: [String] = []//Sides menu for restaurant
     var id: Int = 0//Restaurant ID
-
+    
+    var restaurantObj: [PFObject]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -29,9 +30,9 @@ class ProgrammerViewController: UIViewController {
         let restaurant = PFObject(className: "Restaurant")
         let rest = PFQuery(className: "Restaurant")
         
-        //let rest = 
+        //let rest =
         //restaurant["name"] = "McDonalds"
-
+        
         restaurant["hours"] = hours
         restaurant["breakfastMenu"] = breakfastMenu
         restaurant["lunchMenu"] = lunchMenu
@@ -54,15 +55,14 @@ class ProgrammerViewController: UIViewController {
     }
     
     
-
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
