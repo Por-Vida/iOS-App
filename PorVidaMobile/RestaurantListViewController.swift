@@ -24,15 +24,14 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     
     var id: Int!//A counter for restaurants
     var location: String = ""//Location of the restaurant
-    var phone: String!//Restaurant phone number
-    var website: String!//Restaurant phone number
     var restaurantName: String = ""// = newRestaurantField.text
     var restaurantObj = [PFObject]()//Restaurant name and manager
+    var isClicked = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isClicked = false
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -212,6 +211,7 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     //    }
     
     @IBAction func onBack(_ sender: Any) {
+        isClicked = true
         print("An error?")//This may be cause of a warning about window heirachy
         performSegue(withIdentifier: "toMain", sender: nil)
     }
@@ -219,15 +219,31 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        print("Transition from cell")
-//        let cell = sender as! UITableViewCell
-//        let indexPath = tableView.indexPath(for: cell)!
-//        let restaurant = restaurantObj[indexPath.row]
-//        let restaurantDetails = segue.destination as! RestaurantDetailViewController
-//        restaurantDetails.restaurantObj = restaurantObj
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+//        if isClicked {
+//
+//        } else {
+        if !isClicked {
+            print("Transition from cell")
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)!
+            let restaurant = restaurantObj[indexPath.row]
+            let restaurantDetails = segue.destination as! AdminDetailsViewController
+            restaurantDetails.restaurantObj = restaurant
+        }
+        /*
+         let movie = movies[indexPath.row]//The defines a movie as one of the movies in the tableview based on its value from indexPath
+         let detailsViewController = segue.destination as! MovieDetailsViewController
+         detailsViewController.movie = movie//Helps pass the data of the movie selected into "movie"
+         
+         //tableView.deselectRow(at: indexPath, animated: true)//Upon return from the push navigation, deselects the last cell; I prefer leaving it selected as it marks what was last clicked
+         */
+    }
+    
+//    func prepared (for segue: UIStoryboardSegue, sender: Any?) {
+//        if isClicked
 //    }
     
 }
