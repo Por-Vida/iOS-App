@@ -28,7 +28,7 @@ class RestaurantDetailViewController: UIViewController {
     
     func uploadRestaurantInfo() {
         let restaurant = PFObject(className: "Restaurant")
-        let rest = PFQuery(className: "Restaurant")
+        //let rest = PFQuery(className: "Restaurant")
         
         //let rest =
         //restaurant["name"] = "McDonalds"

@@ -219,15 +219,15 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        print("Transition from cell")
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPath(for: cell)!
-        let restaurant = restaurantObj[indexPath.row]
-        let restaurantDetails = segue.destination as! RestaurantDetailViewController
-        restaurantDetails.restaurantObj = restaurantObj
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        print("Transition from cell")
+//        let cell = sender as! UITableViewCell
+//        let indexPath = tableView.indexPath(for: cell)!
+//        let restaurant = restaurantObj[indexPath.row]
+//        let restaurantDetails = segue.destination as! RestaurantDetailViewController
+//        restaurantDetails.restaurantObj = restaurantObj
+//    }
     
 }
