@@ -6,6 +6,10 @@ Time spent: **23** hours spent in total
 
 ## Video Walkthrough
 
+A walkthrough of the current layout for the Por Vida Mobile app:
+
+<img src='https://raw.githubusercontent.com/TempSchoolAcct/TotallyRealMathSolutions/master/test.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
+
 A walkthrough of the layout for Por Vida Mobile using Figma:
 
 <img src='https://recordit.co/ljDTeQkJDs.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
