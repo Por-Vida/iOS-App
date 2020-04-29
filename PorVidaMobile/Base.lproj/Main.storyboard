@@ -272,6 +272,9 @@
                                         <state key="normal" title="Edit Info">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onEditProfile:" destination="KCq-wd-HHv" eventType="touchUpInside" id="Yyi-Xq-njD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIf-0f-x8g">
                                         <rect key="frame" x="201" y="112" width="120" height="30"/>
@@ -279,6 +282,9 @@
                                         <state key="normal" title="Add New Item">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onNewMeal:" destination="KCq-wd-HHv" eventType="touchUpInside" id="YaI-v8-0Ce"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.1529411765" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -352,8 +358,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-bm-96A">
-                                <rect key="frame" x="0.0" y="192" width="414" height="575"/>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-bm-96A">
+                                <rect key="frame" x="0.0" y="192" width="414" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y03-Yx-Z79" userLabel="MealField">
@@ -507,6 +513,30 @@
                                             <segment title="Kids"/>
                                         </segments>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PA-Lm-0eZ">
+                                        <rect key="frame" x="263" y="565" width="120" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onCancel:" destination="KCq-wd-HHv" eventType="touchUpInside" id="4Kh-hy-UYy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wj5-i1-WZc">
+                                        <rect key="frame" x="31" y="565" width="120" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSubmit:" destination="KCq-wd-HHv" eventType="touchUpInside" id="wIW-93-e89"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -523,6 +553,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ncr-wj-BrX"/>
                     </view>
+                    <connections>
+                        <outlet property="caloriesField" destination="ocq-ax-iv5" id="eLm-wF-EnT"/>
+                        <outlet property="carbsField" destination="mVu-UT-k42" id="K8I-EY-mno"/>
+                        <outlet property="descriptionField" destination="Pab-iD-b9B" id="u0o-MK-ld9"/>
+                        <outlet property="fiberField" destination="PcK-Ff-7nY" id="hbV-ub-RNA"/>
+                        <outlet property="mealNameField" destination="Y03-Yx-Z79" id="ZSR-fH-0uz"/>
+                        <outlet property="mealTypeSegment" destination="7L8-Qz-HKT" id="09L-3D-uJ3"/>
+                        <outlet property="newMealView" destination="uBy-bm-96A" id="emt-D8-ztr"/>
+                        <outlet property="proteinField" destination="IxU-tz-JW7" id="gbk-Fc-LBi"/>
+                        <outlet property="restaurantNameLabel" destination="uWJ-hH-QDF" id="Qgk-a0-q0a"/>
+                        <outlet property="satFatField" destination="s4a-O4-Xc9" id="Bdd-vv-dRz"/>
+                        <outlet property="sodiumField" destination="kE7-0a-NcQ" id="MS8-oz-PJi"/>
+                        <outlet property="sugarField" destination="X39-1N-vlG" id="hHX-Ok-4tQ"/>
+                        <outlet property="totalFatField" destination="t5M-f2-ew4" id="33u-K3-425"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6Y-FQ-3EO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
