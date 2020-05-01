@@ -1,0 +1,6 @@
+framework module Pods_PorVidaMobileTests {
+  umbrella header "Pods-PorVidaMobileTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
