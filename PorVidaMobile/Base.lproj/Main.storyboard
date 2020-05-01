@@ -206,7 +206,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-am-FlR">
                                 <rect key="frame" x="227" y="631.5" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" backgroundImage="map" catalog="system"/>
+                                <state key="normal" backgroundImage="Por Vida Map - Figma"/>
                                 <connections>
                                     <segue destination="6H8-ag-mgM" kind="presentation" id="zDJ-Qv-gOk"/>
                                 </connections>
@@ -896,6 +896,6 @@
         <segue reference="zXi-2Z-SGy"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="Por Vida Map - Figma" width="108" height="108"/>
     </resources>
 </document>
