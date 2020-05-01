@@ -14,6 +14,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var newMealView: UIView!
     @IBOutlet weak var mealTableView: UITableView!
+    @IBOutlet weak var mealTypePicker: UISegmentedControl!
     
     @IBOutlet weak var mealNameField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
@@ -39,6 +40,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     //var id: Int = 0//Restaurant ID
     
     var restaurantObj: PFObject!
+    //var selectedRestaurant: PFObject!
     var lunchMealCounter: [Int] = [0,0]
     
     override func viewDidLoad() {
@@ -47,6 +49,8 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         mealTableView.dataSource = self
         //        var name = restaurantObj["name"] as! String
         //        restaurantNameLabel.text = name
+        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,15 +77,14 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         //        }
         
         
-        
         if let lunchMealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
             meals = lunchMealList
-            
-            //            print("THIS IS WHERE TABLEVIEW() IS!")
-            //            print(meals[0]["meal"] as! String)
-            print(meals[lunchMealCounter[0]]["meal"] as! String)
-            
-            lunchMealCounter[0] += 1
+//
+//            //            print("THIS IS WHERE TABLEVIEW() IS!")
+//            //            print(meals[0]["meal"] as! String)
+//            print(meals[lunchMealCounter[0]]["meal"] as! String)
+//
+//            lunchMealCounter[0] += 1
             return lunchMealList.count
         } else {
             return 0
@@ -148,6 +151,9 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func onSubmit(_ sender: Any) {
+        let test = mealTypePicker.selectedSegmentIndex
+        print("TEST HERE: \(test)")
+        
         var mealName: String {
             if let meal = mealNameField.text {
                 if meal != "" { return meal }
@@ -214,44 +220,57 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             
+        } else if mealTypePicker.selectedSegmentIndex == 0 {
+            let alert = UIAlertController(title: "Incomplete Fields", message: "Please select the type of meal at the bottom of the view!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Before Completion", message: "Check your fields before submission! When you are ready, press \"Continue\"", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
-                //Add to an array, upload that array
-                /*
-                 var item = ["meal": food, "ingredients": ingredient]
-                 var arr: [[String: String]] = []
-                 arr.append(item)
-                 print(arr[0])
-                 //Calories, total fat, saturated fat, sodium, carbohydrates, fiber, added sugar, protein
-                 */
                 
-                //        var beep = restaurantObj["name"] as! String
-                //        print(beep)
-                //        restaurantObj["website"] = "www.somewebsite.com"
-                //        var web = restaurantObj["website"] as! String
-                //        print(web)
+                let meals = PFObject(className: "Meals")
                 
+                meals["name"] = mealName
+                meals["description"] = description
+                meals["calories"] = calories
+                meals["totalFat"] = totalFat
+                meals["satFat"] = satFat
+                meals["sodium"] = sodium
+                meals["carbs"] = carbs
+                meals["fiber"] = fiber
+                meals["sugar"] = sugar
+                meals["protein"] = protein
+                meals["restaurant"] = self.restaurantObj
                 
-                
-                let item = ["meal": mealName, "description": description, "calories": calories, "totalFat": totalFat, "satFat": satFat, "sodium": sodium, "carbs": carbs, "fiber": fiber, "sugar": sugar, "protein": protein]
-                print(item["meal"]!)//Check
-                
-                if var lunchMeals: [[String: String]] = self.restaurantObj["lunchMeal"] as? [[String: String]] {
-                    
-                    lunchMeals.append(item)
-                    self.restaurantObj["lunchMeal"] = lunchMeals
-                    
-                    self.restaurantObj.saveInBackground { (success, error) in
-                        if success {
-                            //Dismiss the view, clear the fields, update the tableview
-                            print("Saved")
-                        } else {
-                            print("\(error)")
-                        }
+                self.restaurantObj.add(meals, forKey: "Meals")//forKey: "comments"
+                self.restaurantObj.saveInBackground { (success, error) in
+                    if success {
+                        print("Comment saved")
+                    } else {
+                        print("Failed to save comment")
                     }
-                    
                 }
+                
+                self.mealTableView.reloadData()
+                
+//                let item = ["meal": mealName, "description": description, "calories": calories, "totalFat": totalFat, "satFat": satFat, "sodium": sodium, "carbs": carbs, "fiber": fiber, "sugar": sugar, "protein": protein]
+//                print(item["meal"]!)//Check
+//
+//                if var lunchMeals: [[String: String]] = self.restaurantObj["lunchMeal"] as? [[String: String]] {
+//
+//                    lunchMeals.append(item)
+//                    self.restaurantObj["lunchMeal"] = lunchMeals
+//
+//                    self.restaurantObj.saveInBackground { (success, error) in
+//                        if success {
+//                            //Dismiss the view, clear the fields, update the tableview
+//                            print("Saved")
+//                        } else {
+//                            print("\(error)")
+//                        }
+//                    }
+//
+//                }
                 
                 //                var lunchMeals: [[String: String]] = (self.restaurantObj["lunchMeal"] as? [[String: String]])!
                 

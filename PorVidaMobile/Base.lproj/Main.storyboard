@@ -569,6 +569,7 @@
                         <outlet property="fiberField" destination="PcK-Ff-7nY" id="hbV-ub-RNA"/>
                         <outlet property="mealNameField" destination="Y03-Yx-Z79" id="ZSR-fH-0uz"/>
                         <outlet property="mealTableView" destination="0Yt-Q9-7La" id="Ncu-8l-dOr"/>
+                        <outlet property="mealTypePicker" destination="7L8-Qz-HKT" id="dvd-5O-lew"/>
                         <outlet property="mealTypeSegment" destination="7L8-Qz-HKT" id="09L-3D-uJ3"/>
                         <outlet property="newMealView" destination="uBy-bm-96A" id="emt-D8-ztr"/>
                         <outlet property="proteinField" destination="IxU-tz-JW7" id="gbk-Fc-LBi"/>
