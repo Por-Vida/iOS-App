@@ -240,6 +240,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eTQ-4i-Xmj">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6H8-ag-mgM" id="Ll5-Qg-j6W"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cps-hg-xh3" userLabel="Footer">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
@@ -270,10 +273,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="geA-kf-i4S"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="eTQ-4i-Xmj" id="bRp-Te-f74"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56r-h9-ChK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1243" y="100"/>
+            <point key="canvasLocation" x="1026" y="100"/>
         </scene>
         <!--RestaurantDetails-->
         <scene sceneID="aIG-zd-JRx">
