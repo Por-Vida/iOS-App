@@ -26,25 +26,32 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     var location: String = ""//Location of the restaurant
     var restaurantName: String = ""// = newRestaurantField.text
     var restaurantObj = [PFObject]()//Restaurant name and manager
-    var isClicked = false
+    var isClicked = false//A checker to allow the transition from a table cell
     
     
     override func viewDidLoad() {
+         // Do any additional setup after loading the view.
         super.viewDidLoad()
         isClicked = false
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        updateTableview()
+    }
+    
+    func updateTableview() {
+        /*
+         Pulls data from Heroku to display in tableview
+         */
         let pull = PFQuery(className: "Restaurant")
         pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
-        //pull.coun
         
+        /*
+         Uses data query under var title, and sets that query to restaurantObj as PFObject
+         */
         pull.findObjectsInBackground { (title, error) in
             if title != nil {
                 self.restaurantObj = title!
@@ -66,11 +73,11 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
      Prepares the cell to show details requested (in our case, basic restaurant title)
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        /*
+         Sets constants from PFObject query to be used for displaying on cells
+         */
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
-        //let user = restaurantTitle[indexPath.row]["user"] as! PFObject
         let name = restaurantObj[indexPath.row]["name"] as! String
-        //print("THE NAME: \(name)")
         let managerLast = restaurantObj[indexPath.row]["managerLast"] as! String
         let managerFirst = restaurantObj[indexPath.row]["managerFirst"] as! String
         let street = restaurantObj[indexPath.row]["street"] as! String
@@ -84,7 +91,6 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.location.text = location
         cell.restaurant.text = title
-        //cell.restaurant.test
         
         return cell
     }
@@ -93,7 +99,9 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
      Uses parameters taken from storyboard to create a new restaurant object
      */
     @IBAction func onRestaurantSubmit(_ sender: Any) {
-        //Check that all values are possible; classname will be restaurant-[Location]
+        /*
+         Creates variables in preparation for user input
+         */
         var street: String = "Default"
         var city: String = "Default"
         var state: String = "Default"
@@ -123,6 +131,9 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
             managerLast = managerLastField.text!
         }
         
+        /*
+         Checks for successful completion of form; if there are banks, you must complete them; else, submits new restaurant.
+         */
         if (street == "Default" || city == "Default" || state == "Default" || zip == "Default" || managerFirst == "Default" || managerLast == "Default") {
             let alert = UIAlertController(title: "Missing Information", message: "You have not filled all of the blanks. Please go back and fill the blanks with required information.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
@@ -181,6 +192,9 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
      Cancels the restaurant creation
      */
     @IBAction func onCancel(_ sender: Any) {
+        /*
+         Cencels creating restaurant
+         */
         restaurantLocationView.isHidden = true
         print("Cancelling")
         //Wipe all the fields in the restLocView
@@ -191,6 +205,9 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
      */
     @IBAction func onSubmit(_ sender: Any) {
         
+        /*
+         Creates new restaurant name
+         */
         if !newRestaurantField.text!.isEmpty {
             //print("The text: \(newRestaurantName!)")
             restaurantName = newRestaurantField.text!
@@ -222,9 +239,9 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-//        if isClicked {
-//
-//        } else {
+        /*
+         If the cell is tapped, transitions to new view with specific restaurant
+         */
         if !isClicked {
             print("Transition from cell")
             let cell = sender as! UITableViewCell
@@ -233,17 +250,5 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
             let restaurantDetails = segue.destination as! AdminDetailsViewController
             restaurantDetails.restaurantObj = restaurant
         }
-        /*
-         let movie = movies[indexPath.row]//The defines a movie as one of the movies in the tableview based on its value from indexPath
-         let detailsViewController = segue.destination as! MovieDetailsViewController
-         detailsViewController.movie = movie//Helps pass the data of the movie selected into "movie"
-         
-         //tableView.deselectRow(at: indexPath, animated: true)//Upon return from the push navigation, deselects the last cell; I prefer leaving it selected as it marks what was last clicked
-         */
     }
-    
-//    func prepared (for segue: UIStoryboardSegue, sender: Any?) {
-//        if isClicked
-//    }
-    
 }

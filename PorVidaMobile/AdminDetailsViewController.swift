@@ -9,9 +9,11 @@
 import UIKit
 import Parse
 
-class AdminDetailsViewController: UIViewController {
+class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var newMealView: UIView!
+    @IBOutlet weak var mealTableView: UITableView!
     
     @IBOutlet weak var mealNameField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
@@ -25,8 +27,6 @@ class AdminDetailsViewController: UIViewController {
     @IBOutlet weak var proteinField: UITextField!
     @IBOutlet weak var mealTypeSegment: UISegmentedControl!
     
-    
-    
     var phone: String!//Restaurant phone number
     var website: String!//Restaurant phone number
     var hours: String!//Restaurant hours
@@ -35,31 +35,78 @@ class AdminDetailsViewController: UIViewController {
     var dinnerMenu: [String] = []//Dinner menu for restaurant
     var kidsMenu: [String] = []//Kids menu for restaurant
     var sidesMenu: [String] = []//Sides menu for restaurant
+    var meals: [[String: String]] = []
     //var id: Int = 0//Restaurant ID
     
     var restaurantObj: PFObject!
+    var mealCounter: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        var beep = restaurantObj["name"] as! String
-//        print(beep)
-//        restaurantObj["website"] = "www.somewebsite.com"
-//        var web = restaurantObj["website"] as! String
-//        print(web)
+        mealTableView.delegate = self
+        mealTableView.dataSource = self
         
         var name = restaurantObj["name"] as! String
         restaurantNameLabel.text = name
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //        let pull = PFQuery(className: "Restaurant")
+        //        pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
+        //
+        //        pull.findObjectsInBackground { (title, error) in
+        //            if title != nil {
+        //                self.restaurantObj = title!
+        //                self.tableView.reloadData()
+        //            }
+        //        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //        if let arr: [[String: String]] = restaurantObj["lunchMeal"] as? [[String : String]] {
+        //            print(arr[0]["meal"]!)
+        //        } else {
+        //            print("No meals exist here!")
+        //        }
         
         
-        var food: String; var ingredient: String
-        food = "Pizza"
-        ingredient = "Tom Sauce, Peppp"
-        var item = ["meal": food, "ingredients": ingredient]
-        var arr: [[String: String]] = []
-        arr.append(item)
-        print(arr[0])
-        //Calories, total fat, saturated fat, sodium, carbohydrates, fiber, added sugar, protein
+        
+        if let mealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
+            meals = mealList
+            
+//            print("THIS IS WHERE TABLEVIEW() IS!")
+//            print(meals[0]["meal"] as! String)
+            print(meals[mealCounter]["meal"] as! String)
+            
+            mealCounter += 1
+            return mealList.count
+        } else {
+            return 0
+        }
+        
+        //        meals = (restaurantObj["lunchMeal"] as? [[String: String]])!//Fails if there is no meal array
+        
+        //
+        //        if meals.count == 0 {
+        //            return 0
+        //        } else {
+//            return meals.count
+//        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
+        
+        
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //return restaurantTitle.count
+        return 1
     }
     
     @IBAction func onBack(_ sender: Any) {
@@ -156,18 +203,56 @@ class AdminDetailsViewController: UIViewController {
             return "Default"
         }
         
-        /*
-         self.carbsField.text = ""
-         self.fiberField.text = ""
-         self.sugarField.text = ""
-         self.proteinField.text = ""
-         */
-
-
         if (mealName == "Default" || calories == "Default" || totalFat == "Default" || satFat == "Default" || sodium == "Default" || carbs == "Default" || fiber == "Default" || sugar == "Default" || protein == "Default") {
-            print("FILL IT COMP")
-        }else {
-            print("sccss")
+            let alert = UIAlertController(title: "Incomplete Fields", message: "Please fill out all of the fields with appropriate information!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "Before Completion", message: "Check your fields before submission! When you are ready, press \"Continue\"", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
+                //Add to an array, upload that array
+                /*
+                 var item = ["meal": food, "ingredients": ingredient]
+                 var arr: [[String: String]] = []
+                 arr.append(item)
+                 print(arr[0])
+                 //Calories, total fat, saturated fat, sodium, carbohydrates, fiber, added sugar, protein
+                 */
+                
+                //        var beep = restaurantObj["name"] as! String
+                //        print(beep)
+                //        restaurantObj["website"] = "www.somewebsite.com"
+                //        var web = restaurantObj["website"] as! String
+                //        print(web)
+                
+                
+                
+                let item = ["meal": mealName, "description": description, "calories": calories, "totalFat": totalFat, "satFat": satFat, "sodium": sodium, "carbs": carbs, "fiber": fiber, "sugar": sugar, "protein": protein]
+                print(item["meal"]!)//Check
+                
+                if var lunchMeals: [[String: String]] = self.restaurantObj["lunchMeal"] as? [[String: String]] {
+                    
+                    lunchMeals.append(item)
+                    self.restaurantObj["lunchMeal"] = lunchMeals
+                    
+                    self.restaurantObj.saveInBackground { (success, error) in
+                        if success {
+                            //Dismiss the view, clear the fields, update the tableview
+                            print("Saved")
+                        } else {
+                            print("\(error)")
+                        }
+                    }
+                    
+                }
+                
+//                var lunchMeals: [[String: String]] = (self.restaurantObj["lunchMeal"] as? [[String: String]])!
+
+                
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     /*

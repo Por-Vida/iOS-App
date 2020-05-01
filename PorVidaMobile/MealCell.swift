@@ -1,16 +1,17 @@
 //
-//  RestaurantCell.swift
+//  MealCell.swift
 //  PorVidaMobile
 //
-//  Created by cory on 4/13/20.
+//  Created by cory on 4/30/20.
 //  Copyright © 2020 BigByteDevelopment. All rights reserved.
 //
 
 import UIKit
 
-class RestaurantCell: UITableViewCell {
-    @IBOutlet weak var restaurant: UILabel!//Restaurant name label
-    @IBOutlet weak var location: UILabel!//Location label
+class MealCell: UITableViewCell {
+    @IBOutlet weak var mealLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
     
 
     override func awakeFromNib() {
