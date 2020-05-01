@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -203,6 +203,14 @@
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <color key="backgroundColor" red="0.38431372549019605" green="0.70980392156862748" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-am-FlR">
+                                <rect key="frame" x="227" y="631.5" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" backgroundImage="map" catalog="system"/>
+                                <connections>
+                                    <segue destination="6H8-ag-mgM" kind="presentation" id="zDJ-Qv-gOk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -220,6 +228,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="cht-CA-vey">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="6H8-ag-mgM" customClass="MapViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3pl-n8-vls">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eTQ-4i-Xmj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cps-hg-xh3" userLabel="Footer">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-br-rRU">
+                                        <rect key="frame" x="147" y="23" width="120" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94439837149999994" green="0.95374885040000001" blue="0.95374885040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onBack:" destination="yKS-Jg-7wn" eventType="touchUpInside" id="zgV-TO-QV8"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="zXi-2Z-SGy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.38431372549999998" green="0.70980392160000005" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cps-hg-xh3" secondAttribute="bottom" id="T91-62-FZw"/>
+                            <constraint firstItem="cps-hg-xh3" firstAttribute="leading" secondItem="geA-kf-i4S" secondAttribute="leading" id="Zak-hM-5c2"/>
+                            <constraint firstItem="cps-hg-xh3" firstAttribute="top" secondItem="geA-kf-i4S" secondAttribute="top" constant="772" id="j60-Eo-xOH"/>
+                            <constraint firstItem="cps-hg-xh3" firstAttribute="trailing" secondItem="geA-kf-i4S" secondAttribute="trailing" id="wEg-Nm-aQT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="geA-kf-i4S"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="56r-h9-ChK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1243" y="100"/>
         </scene>
         <!--RestaurantDetails-->
         <scene sceneID="aIG-zd-JRx">
@@ -832,6 +886,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="P9X-fT-zWE"/>
+        <segue reference="fdH-JA-eEX"/>
+        <segue reference="zXi-2Z-SGy"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="map" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
