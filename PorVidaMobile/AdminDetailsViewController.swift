@@ -39,19 +39,20 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     //var id: Int = 0//Restaurant ID
     
     var restaurantObj: PFObject!
-    var mealCounter: Int = 0
+    var lunchMealCounter: [Int] = [0,0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mealTableView.delegate = self
         mealTableView.dataSource = self
-        
-        var name = restaurantObj["name"] as! String
-        restaurantNameLabel.text = name
+        //        var name = restaurantObj["name"] as! String
+        //        restaurantNameLabel.text = name
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        restaurantNameLabel.text = restaurantObj["name"] as? String
         
         //        let pull = PFQuery(className: "Restaurant")
         //        pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
@@ -73,33 +74,38 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
         
         
-        if let mealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
-            meals = mealList
+        if let lunchMealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
+            meals = lunchMealList
             
-//            print("THIS IS WHERE TABLEVIEW() IS!")
-//            print(meals[0]["meal"] as! String)
-            print(meals[mealCounter]["meal"] as! String)
+            //            print("THIS IS WHERE TABLEVIEW() IS!")
+            //            print(meals[0]["meal"] as! String)
+            print(meals[lunchMealCounter[0]]["meal"] as! String)
             
-            mealCounter += 1
-            return mealList.count
+            lunchMealCounter[0] += 1
+            return lunchMealList.count
         } else {
             return 0
         }
-        
-        //        meals = (restaurantObj["lunchMeal"] as? [[String: String]])!//Fails if there is no meal array
-        
-        //
-        //        if meals.count == 0 {
-        //            return 0
-        //        } else {
-//            return meals.count
-//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
         
-        
+        if let lunchMealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
+            meals = lunchMealList
+            
+            cell.mealLabel.text = lunchMealList[1]["meal"] as! String
+            cell.descriptionLabel.text = lunchMealList[1]["meal"] as! String
+            var calories = lunchMealList[1]["calories"] as! String
+            var totalFat = lunchMealList[1]["totalFat"]
+            
+            
+            //            print("THIS IS WHERE TABLEVIEW() IS!")
+            //            print(meals[0]["meal"] as! String)
+            //print(meals[lunchMealCounter[1]]["meal"] as! String)
+            
+            lunchMealCounter[1] += 1
+        }
         
         return cell
     }
@@ -247,8 +253,8 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
                     
                 }
                 
-//                var lunchMeals: [[String: String]] = (self.restaurantObj["lunchMeal"] as? [[String: String]])!
-
+                //                var lunchMeals: [[String: String]] = (self.restaurantObj["lunchMeal"] as? [[String: String]])!
+                
                 
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
