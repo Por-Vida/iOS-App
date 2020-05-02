@@ -1,8 +1,9 @@
 # *¡Por Vida! Mobile*
 
-##Table of Contents##
+##Table of Contents
 
-##Overview##
+##Overview
+
 #Description#
 
 **¡Por Vida! Mobile** is the mobile version of the City of San Antonio's "¡Por Vida!" website, which indicates retaurants located around the city of San Antonio, Texas, that cook healthier, affordable meals.
