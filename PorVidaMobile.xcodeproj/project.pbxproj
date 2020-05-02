@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		051FB5B5612347909BE76964 /* Pods_PorVidaMobile_PorVidaMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D4B1A1B73F6744E3129BDC /* Pods_PorVidaMobile_PorVidaMobileUITests.framework */; };
 		4F0FAD9B7D75E4B5E74A7A24 /* Pods_PorVidaMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */; };
+		8B27001C245D13E60060472B /* MealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27001B245D13E60060472B /* MealTypeCell.swift */; };
 		8B371EC8245BC42B00DAE791 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B371EC7245BC42B00DAE791 /* MealCell.swift */; };
 		8B3CEB86244E203100F69F52 /* AdminDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */; };
 		8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40EECD243BAD1600DE69B9 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		24D2CF922AE5575823A85376 /* Pods_PorVidaMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PorVidaMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51DD24C4E1E889BB208A7AF6 /* Pods-PorVidaMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile.release.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile.release.xcconfig"; sourceTree = "<group>"; };
 		70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PorVidaMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B27001B245D13E60060472B /* MealTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeCell.swift; sourceTree = "<group>"; };
 		8B371EC7245BC42B00DAE791 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDetailsViewController.swift; sourceTree = "<group>"; };
 		8B40EECA243BAD1600DE69B9 /* PorVidaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PorVidaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 				8B74EDAB2444F39600B86FF9 /* RestaurantListViewController.swift */,
 				8B74EDAF24455E4E00B86FF9 /* RestaurantCell.swift */,
 				8B371EC7245BC42B00DAE791 /* MealCell.swift */,
+				8B27001B245D13E60060472B /* MealTypeCell.swift */,
 				8B40EED6243BAD1900DE69B9 /* Assets.xcassets */,
 				8B40EED3243BAD1600DE69B9 /* Main.storyboard */,
 				8B40EED8243BAD1900DE69B9 /* LaunchScreen.storyboard */,
@@ -433,6 +436,7 @@
 				8B3CEB86244E203100F69F52 /* AdminDetailsViewController.swift in Sources */,
 				AB9D7509245CD36500C44ED4 /* MapViewController.swift in Sources */,
 				8B371EC8245BC42B00DAE791 /* MealCell.swift in Sources */,
+				8B27001C245D13E60060472B /* MealTypeCell.swift in Sources */,
 				8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */,
 				8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */,
 				8B74EDAC2444F39600B86FF9 /* RestaurantListViewController.swift in Sources */,
