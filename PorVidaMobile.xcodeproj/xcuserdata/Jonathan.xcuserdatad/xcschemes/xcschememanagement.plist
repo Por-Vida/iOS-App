@@ -4,10 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>PorVidaMobile.xcscheme_^#shared#^_</key>
+		<key>Copy of PorVidaMobile.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+		<key>PorVidaMobile.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8B40EEC9243BAD1600DE69B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B40EEDF243BAD1900DE69B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B40EEEA243BAD1900DE69B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
