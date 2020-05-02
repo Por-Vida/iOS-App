@@ -67,6 +67,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        restaurantNameLabel.text = restaurantObj["name"] as! String
         let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
         for index in 0 ..< meal.count {
             if meal[index]["mealType"] as? String == "Breakfast" {
@@ -84,7 +85,6 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         mealsCount = meal.count
         
         let query = PFQuery(className: "Restaurants")
-        //query.includeKeys(["name", "street", "city", "state", "zip", "Meals", "Meals.restaurant"])
         
         query.findObjectsInBackground { (restaurants, error) in
             if restaurants != nil {
@@ -94,12 +94,6 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         print(restaurants)
-        //print()
-        //var meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
-        let m = meal[0]
-        //print(m["name"] as? String)
-        //print("\(meal[0]["name"] as! String) & \(meal[1]["name"] as! String)")
-        //print(meal![0]["name"] as? String)
         
         for index in 0 ..< meal.count {
             if meal[index]["mealType"] as! String == "Breakfast" {
@@ -115,8 +109,6 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
                 
             }
         }
-        
-        //        print("LOOKY \(breakfastMeals[0]["name"] as! String)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -134,8 +126,6 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             return 0
         }
-        //        let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
-        //        return meal.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -427,5 +417,4 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
      // Pass the selected object to the new view controller.
      }
      */
-    
 }

@@ -203,10 +203,22 @@
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <color key="backgroundColor" red="0.38431372549019605" green="0.70980392156862748" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-am-FlR">
-                                <rect key="frame" x="227" y="631.5" width="150" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3c6-E4-J5b">
+                                <rect key="frame" x="20" y="235" width="160" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="Por Vida - Figma"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6H-1L-Nq9">
+                                <rect key="frame" x="20" y="403" width="160" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPG-am-FlR">
+                                <rect key="frame" x="20" y="537" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" backgroundImage="map" catalog="system"/>
+                                <state key="normal" backgroundImage="Por Vida Map - Figma"/>
                                 <connections>
                                     <segue destination="6H8-ag-mgM" kind="presentation" id="zDJ-Qv-gOk"/>
                                 </connections>
@@ -921,6 +933,7 @@
         <segue reference="xJI-GM-iuf"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="Por Vida - Figma" width="108" height="108"/>
+        <image name="Por Vida Map - Figma" width="108" height="108"/>
     </resources>
 </document>
