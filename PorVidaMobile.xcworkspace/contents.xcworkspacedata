@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../../Applications/San Antonio.gpx">
+   </FileRef>
+   <FileRef
       location = "group:PorVidaMobile.xcodeproj">
    </FileRef>
    <FileRef

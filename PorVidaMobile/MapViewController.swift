@@ -8,21 +8,48 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet var mapView: MKMapView!
+
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.locationManager.requestAlwaysAuthorization()
+
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+
+        mapView.delegate = self
+        mapView.mapType = .standard
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+
+        if let coor = mapView.userLocation.location?.coordinate{
+            mapView.setCenter(coor, animated: true)
+        }
+
+
+        
         // Creating one test restraunt
         let mcdonalliesOne = mapRestaurant(title: "McDonallies", coordinate: CLLocationCoordinate2D(latitude: 29.884420, longitude: -97.714650), info: "Test McDonalds")
         
-        
+        // Adding it to the map view
         mapView.addAnnotation(mcdonalliesOne)
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last{
@@ -31,6 +58,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             self.mapView.setRegion(region, animated: true)
         }
     }
+    
+    
     
     /*
     // MARK: - Navigation
