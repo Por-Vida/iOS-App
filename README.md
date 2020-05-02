@@ -42,7 +42,8 @@ The following **additional** user stories are implemented:
 
 ## 2. Navigation
 
-## Flow Navigation # (Screen to screen)
+## Flow Navigation #
+(Screen to screen)
 
 - ### Menus ###
    - Restaurant button connects to list of restaurants, which each restaurant cell bringing up tje detailed view of the restaurant meals
@@ -53,7 +54,8 @@ The following **additional** user stories are implemented:
 - ### Admin Page ###
    - Top right button brings admin to add new restaurants and restaurant information
    
-## Wireframe ## (brought to you by Figma)
+## Wireframe ## 
+(brought to you by Figma)
 <img src='https://i.imgur.com/xeRksFY.png' title='Por Vida Wireframe' width='' alt='Por Vida Wireframe' />
 
 ## Schema
