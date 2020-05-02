@@ -10,6 +10,9 @@
 		051FB5B5612347909BE76964 /* Pods_PorVidaMobile_PorVidaMobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D4B1A1B73F6744E3129BDC /* Pods_PorVidaMobile_PorVidaMobileUITests.framework */; };
 		4F0FAD9B7D75E4B5E74A7A24 /* Pods_PorVidaMobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */; };
 		71052769245DD94B004953A2 /* RestaurantDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71052768245DD94B004953A2 /* RestaurantDisplayViewController.swift */; };
+		7105276B245DDD83004953A2 /* DisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105276A245DDD83004953A2 /* DisplayCell.swift */; };
+		7105276D245DDDEE004953A2 /* MenuDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105276C245DDDEE004953A2 /* MenuDetailsViewController.swift */; };
+		7105276F245DDE39004953A2 /* MenuDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105276E245DDE39004953A2 /* MenuDetailCell.swift */; };
 		8B27001C245D13E60060472B /* MealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27001B245D13E60060472B /* MealTypeCell.swift */; };
 		8B371EC8245BC42B00DAE791 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B371EC7245BC42B00DAE791 /* MealCell.swift */; };
 		8B3CEB86244E203100F69F52 /* AdminDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */; };
@@ -53,6 +56,9 @@
 		51DD24C4E1E889BB208A7AF6 /* Pods-PorVidaMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PorVidaMobile.release.xcconfig"; path = "Target Support Files/Pods-PorVidaMobile/Pods-PorVidaMobile.release.xcconfig"; sourceTree = "<group>"; };
 		70DAF1405B90BE76698D3AF9 /* Pods_PorVidaMobileTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PorVidaMobileTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71052768245DD94B004953A2 /* RestaurantDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDisplayViewController.swift; sourceTree = "<group>"; };
+		7105276A245DDD83004953A2 /* DisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCell.swift; sourceTree = "<group>"; };
+		7105276C245DDDEE004953A2 /* MenuDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailsViewController.swift; sourceTree = "<group>"; };
+		7105276E245DDE39004953A2 /* MenuDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailCell.swift; sourceTree = "<group>"; };
 		8B27001B245D13E60060472B /* MealTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeCell.swift; sourceTree = "<group>"; };
 		8B371EC7245BC42B00DAE791 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDetailsViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +182,9 @@
 				AB9D7508245CD36500C44ED4 /* MapViewController.swift */,
 				AB9D750A245DCCFC00C44ED4 /* mapRestaurant.swift */,
 				71052768245DD94B004953A2 /* RestaurantDisplayViewController.swift */,
+				7105276A245DDD83004953A2 /* DisplayCell.swift */,
+				7105276C245DDDEE004953A2 /* MenuDetailsViewController.swift */,
+				7105276E245DDE39004953A2 /* MenuDetailCell.swift */,
 			);
 			path = PorVidaMobile;
 			sourceTree = "<group>";
@@ -439,15 +448,18 @@
 			files = (
 				8B74EDB024455E4E00B86FF9 /* RestaurantCell.swift in Sources */,
 				AB9D750B245DCCFC00C44ED4 /* mapRestaurant.swift in Sources */,
+				7105276B245DDD83004953A2 /* DisplayCell.swift in Sources */,
 				8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */,
 				8B3CEB86244E203100F69F52 /* AdminDetailsViewController.swift in Sources */,
 				AB9D7509245CD36500C44ED4 /* MapViewController.swift in Sources */,
 				8B371EC8245BC42B00DAE791 /* MealCell.swift in Sources */,
+				7105276F245DDE39004953A2 /* MenuDetailCell.swift in Sources */,
 				8B27001C245D13E60060472B /* MealTypeCell.swift in Sources */,
 				8B40EED0243BAD1600DE69B9 /* SceneDelegate.swift in Sources */,
 				8BEAAC1424428DEC0067CBAD /* LoginViewController.swift in Sources */,
 				71052769245DD94B004953A2 /* RestaurantDisplayViewController.swift in Sources */,
 				8B74EDAC2444F39600B86FF9 /* RestaurantListViewController.swift in Sources */,
+				7105276D245DDDEE004953A2 /* MenuDetailsViewController.swift in Sources */,
 				8BEAAC1224428DC60067CBAD /* MainViewController.swift in Sources */,
 				8B74EDAA2444EFF700B86FF9 /* SettingsViewController.swift in Sources */,
 			);

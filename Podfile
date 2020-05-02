@@ -6,7 +6,7 @@ target 'PorVidaMobile' do
   use_frameworks!
 
   # Pods for PorVidaMobile
-  pod 'Parse'
+  pod "Parse"
 
   target 'PorVidaMobileTests' do
     inherit! :search_paths
