@@ -44,31 +44,19 @@ The following **additional** user stories are implemented:
 
 ## Flow Navigation # (Screen to screen)
 
-- ## Menus ##
+- ### Menus ###
    - Restaurant button connects to list of restaurants, which each restaurant cell bringing up tje detailed view of the restaurant meals
-- ## Kids ##
+- ### Kids ###
    - Pulls up restaurants with kids menus
-- ## Map ##
+- ### Map ###
    - Opens a map that displays the locations of all restaurants
-- ## Admin Page ##
+- ### Admin Page ###
    - Top right button brings admin to add new restaurants and restaurant information
    
-## Wireframes
-
-## Video Walkthrough
-
-A walkthrough of the current layout for the Por Vida Mobile app:
-
-<img src='https://raw.githubusercontent.com/TempSchoolAcct/TotallyRealMathSolutions/master/test.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
-
-A walkthrough of the layout for Por Vida Mobile using Figma:
-
-<img src='https://recordit.co/ljDTeQkJDs.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
-
-
-
-## Wireframe
+## Wireframe ## (brought to you by Figma)
 <img src='https://i.imgur.com/xeRksFY.png' title='Por Vida Wireframe' width='' alt='Por Vida Wireframe' />
+
+## Schema
 
 ## Model (in progress)
 | Property | Type | Description |
@@ -127,8 +115,6 @@ A walkthrough of the layout for Por Vida Mobile using Figma:
 * Login Screen
     * (Update/PUT?) - Query to login?
 
-
-
 ## Notes
 
 Describe any challenges encountered while building the app.
@@ -152,3 +138,14 @@ Describe any challenges encountered while building the app.
     limitations under the License.
 
 [Click here to see the Apache License page](https://www.apache.org/licenses/LICENSE-2.0). doodly doot. 
+
+
+## Video Walkthrough
+
+A walkthrough of the current layout for the Por Vida Mobile app:
+
+<img src='https://raw.githubusercontent.com/TempSchoolAcct/TotallyRealMathSolutions/master/test.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
+
+A walkthrough of the layout for Por Vida Mobile using Figma:
+
+<img src='https://recordit.co/ljDTeQkJDs.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
