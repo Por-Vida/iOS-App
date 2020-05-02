@@ -20,7 +20,9 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var zipCodeField: UITextField!//Restaurant zip code
     @IBOutlet weak var managerFirstField: UITextField!//First name of manager
     @IBOutlet weak var managerLastField: UITextField!//Last name of manager
-    //Note: State and city can be removed, and added automatically, and a manager middle name can be included
+    @IBOutlet weak var longitudeField: UITextField!
+    @IBOutlet weak var latitudeField: UITextField!
+    
     
     var id: Int!//A counter for restaurants
     var location: String = ""//Location of the restaurant
@@ -108,6 +110,8 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         var zip: String = "Default"
         var managerLast = "Default"
         var managerFirst = "Default"
+        var longitude = 0.0
+        var latitude = 0.0
         
         var restaurant = PFObject(className: "Restaurant")
         
@@ -130,6 +134,42 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         if !managerLastField.text!.isEmpty {
             managerLast = managerLastField.text!
         }
+        
+        if !longitudeField.text!.isEmpty {
+            var longStr = longitudeField.text!
+            if let x = Double(longitudeField.text!) {
+                longitude = Double(longitudeField.text!)!
+                print(longitude)
+            } else {
+                let alert = UIAlertController(title: "Missing Information", message: "You have not filled out the coordinate blanks. Please fill them with the coordinate location of the restaurant.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+                print("Doesnt")
+                longitude = 0.0
+                print(longitude)
+            }
+        }
+        
+        if !latitudeField.text!.isEmpty {
+            var latStr = latitudeField.text!
+            if let x = Double(latitudeField.text!) {
+                latitude = Double(latitudeField.text!)!
+                print(latitude)
+            } else {
+                let alert = UIAlertController(title: "Missing Information", message: "You have not filled out the coordinate blanks. Please fill them with the coordinate location of the restaurant.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+                print("Doesnt")
+                latitude = 0.0
+                print(latitude)
+            }
+        }
+        
+        
         
         /*
          Checks for successful completion of form; if there are banks, you must complete them; else, submits new restaurant.
@@ -155,6 +195,8 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
                 restaurant["zip"] = zip
                 restaurant["managerFirst"] = managerFirst
                 restaurant["managerLast"] = managerLast
+                restaurant["longitude"] = longitude
+                restaurant["latitude"] = latitude
                 
                 restaurant.saveInBackground { (success, error) in
                     if success {
@@ -175,6 +217,8 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
                 self.zipCodeField.text = ""
                 self.managerLastField.text = ""
                 self.managerFirstField.text = ""
+                self.longitudeField.text = ""
+                self.latitudeField.text = ""
                 print("Creating restaurant at: \(self.location)")
                 print("Here")
                 
