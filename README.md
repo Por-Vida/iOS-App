@@ -1,6 +1,45 @@
 # *¡Por Vida! Mobile*
 
+## Table of Contents
+
+## Overview
+
+# Description #
+
 **¡Por Vida! Mobile** is the mobile version of the City of San Antonio's "¡Por Vida!" website, which indicates retaurants located around the city of San Antonio, Texas, that cook healthier, affordable meals.
+
+# App Evaluation #
+
+- Category: Lifestyle
+
+- Mobile: This app offers easier to use controls for updating restaurant data, and will possess or more user friendly map of restaurant locations.
+
+- Story: Allows users to locate restaurants that offer healthier foods, giving people better options to stay healthy and still eat out.
+
+- Market: The city of San Antonio are encouraged to use this app at any time; Por vida is a San Antonio organization and is meant to offer anyone better, healthier food options.
+
+- Habit: An average user would use this app at any time they choose to go out to eat. The app will show various menu items for any restaurant, including general menus and kids menus.
+
+- Scope: The bare-bones of this app will allow users to see menus of participating restuarants, so long as the admins of the app continue to update the database with restaurants that are part of Por Vida.
+
+
+##Product Spec##
+
+## User Stories
+
+The following user stories are complete:
+
+- [x] List of restaurants participating in Por Vida, including their contact information and address
+- [x] The menus of the participating restaurants (including kid and adult menus)
+- [x] Admin sign in to allow updates to changes in restaurant information, including loction and menus
+- [ ] An easy-to-use map of all participating restaurants
+
+
+The following **additional** user stories are implemented:
+- [ ] Link to download Healthy Trail PDF in multiple languages
+- [ ] Links to extraneous information included on the website (such as business partner information)
+- [ ] Settings to control (ie language settings)
+
 
 Time spent: **23** hours spent in total
 
@@ -14,20 +53,7 @@ A walkthrough of the layout for Por Vida Mobile using Figma:
 
 <img src='https://recordit.co/ljDTeQkJDs.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
 
-## User Stories
 
-The following user stories are complete:
-
-- [ ] List of restaurants participating in Por Vida, including their contact information and address
-- [ ] The menus of the participating restaurants (including kid and adult menus)
-- [ ] An easy-to-use map of all participating restaurants
-- [ ] Settings to control (ie language settings)
-
-The following **additional** user stories are implemented:
-
-- [ ] Admin sign in to allow updates to changes in restaurant information, including loction and menus
-- [ ] Link to download Healthy Trail PDF in multiple languages
-- [ ] Links to extraneous information included on the website (such as business partner information)
 
 ## Wireframe
 <img src='https://i.imgur.com/xeRksFY.png' title='Por Vida Wireframe' width='' alt='Por Vida Wireframe' />
