@@ -23,9 +23,9 @@
 - Scope: The bare-bones of this app will allow users to see menus of participating restuarants, so long as the admins of the app continue to update the database with restaurants that are part of Por Vida.
 
 
-# Product Spec##
+# Product Spec
 
-# 1. User Stories
+## 1. User Stories
 
 The following user stories are complete:
 
@@ -40,12 +40,20 @@ The following **additional** user stories are implemented:
 - [ ] Links to extraneous information included on the website (such as business partner information)
 - [ ] Settings to control (ie language settings)
 
-# 2. Navigation
+## 2. Navigation
 
-# Flow Navigation # (Screen to screen)
+## Flow Navigation # (Screen to screen)
 
-- # Menus #
+- ## Menus ##
    - Restaurant button connects to list of restaurants, which each restaurant cell bringing up tje detailed view of the restaurant meals
+- ## Kids ##
+   - Pulls up restaurants with kids menus
+- ## Map ##
+   - Opens a map that displays the locations of all restaurants
+- ## Admin Page ##
+   - Top right button brings admin to add new restaurants and restaurant information
+   
+## Wireframes
 
 ## Video Walkthrough
 
