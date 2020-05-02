@@ -47,7 +47,7 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
          Pulls data from Heroku to display in tableview
          */
         let pull = PFQuery(className: "Restaurant")
-        pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
+        pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip", "Meals"])//I edited this
         
         /*
          Uses data query under var title, and sets that query to restaurantObj as PFObject

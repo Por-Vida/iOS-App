@@ -36,86 +36,221 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     var dinnerMenu: [String] = []//Dinner menu for restaurant
     var kidsMenu: [String] = []//Kids menu for restaurant
     var sidesMenu: [String] = []//Sides menu for restaurant
-    var meals: [[String: String]] = []
+    //var meals: [[String: String]] = []
     //var id: Int = 0//Restaurant ID
     
+    
+    //var restaurants = [PFObject]()
+    
+    var restaurants = [PFObject]()
     var restaurantObj: PFObject!
+    //var meals = [PFObject]()
+    var selectedRestaurant: PFObject!
+    
+    var indexCheck = 1
+    var (breakfastCount, lunchCount, dinnerCount, sideCount, kidCount) = (0,0,0,0,0)
+    var mealsCount = 0
+    
+    var (breakfastMeals, lunchMeals, dinnerMeals, sideMeals, kidsMeals): ([PFObject], [PFObject], [PFObject], [PFObject], [PFObject]) = ([], [], [], [], [])
+    
     //var selectedRestaurant: PFObject!
-    var lunchMealCounter: [Int] = [0,0]
+    //var lunchMealCounter: [Int] = [0,0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mealTableView.delegate = self
         mealTableView.dataSource = self
-        //        var name = restaurantObj["name"] as! String
-        //        restaurantNameLabel.text = name
         
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        restaurantNameLabel.text = restaurantObj["name"] as? String
+        let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
+        for index in 0 ..< meal.count {
+            if meal[index]["mealType"] as? String == "Breakfast" {
+                breakfastCount += 1
+            } else if meal[index]["mealType"] as? String == "Lunch" {
+                lunchCount += 1
+            } else if meal[index]["mealType"] as? String == "Dinner" {
+                dinnerCount += 1
+            } else if meal[index]["mealType"] as? String == "Sides" {
+                sideCount += 1
+            } else if meal[index]["mealType"] as? String == "Kids" {
+                kidCount += 1
+            }
+        }
+        mealsCount = meal.count
         
-        //        let pull = PFQuery(className: "Restaurant")
-        //        pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip"])
-        //
-        //        pull.findObjectsInBackground { (title, error) in
-        //            if title != nil {
-        //                self.restaurantObj = title!
-        //                self.tableView.reloadData()
-        //            }
-        //        }
+        let query = PFQuery(className: "Restaurants")
+        //query.includeKeys(["name", "street", "city", "state", "zip", "Meals", "Meals.restaurant"])
+        
+        query.findObjectsInBackground { (restaurants, error) in
+            if restaurants != nil {
+                self.restaurants = restaurants!
+                self.mealTableView.reloadData()
+            }
+        }
+        
+        print(restaurants)
+        //print()
+        //var meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
+        let m = meal[0]
+        //print(m["name"] as? String)
+        //print("\(meal[0]["name"] as! String) & \(meal[1]["name"] as! String)")
+        //print(meal![0]["name"] as? String)
+        
+        for index in 0 ..< meal.count {
+            if meal[index]["mealType"] as! String == "Breakfast" {
+                breakfastMeals.append(meal[index] )
+            } else if meal[index]["mealType"] as! String == "Lunch" {
+                lunchMeals.append(meal[index] )
+            } else if meal[index]["mealType"] as! String == "Dinner" {
+                dinnerMeals.append(meal[index] )
+            } else if meal[index]["mealType"] as! String == "Sides" {
+                sideMeals.append(meal[index] )
+            } else if meal[index]["mealType"] as! String == "Kids" {
+                kidsMeals.append(meal[index] )
+                
+            }
+        }
+        
+        //        print("LOOKY \(breakfastMeals[0]["name"] as! String)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        if let arr: [[String: String]] = restaurantObj["lunchMeal"] as? [[String : String]] {
-        //            print(arr[0]["meal"]!)
-        //        } else {
-        //            print("No meals exist here!")
-        //        }
         
-        
-        if let lunchMealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
-            meals = lunchMealList
-//
-//            //            print("THIS IS WHERE TABLEVIEW() IS!")
-//            //            print(meals[0]["meal"] as! String)
-//            print(meals[lunchMealCounter[0]]["meal"] as! String)
-//
-//            lunchMealCounter[0] += 1
-            return lunchMealList.count
+        if section == 0 {
+            return breakfastCount + 1
+        } else if section == 1 {
+            return lunchCount + 1
+        } else if section == 2 {
+            return dinnerCount + 1
+        } else if section == 3 {
+            return sideCount + 1
+        } else if section == 4 {
+            return kidCount + 1
         } else {
             return 0
         }
+        //        let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
+        //        return meal.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
-        
-        if let lunchMealList: [[String: String]] = restaurantObj["lunchMeal"] as? [[String: String]] {
-            meals = lunchMealList
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MealTypeCell", for: indexPath) as! MealTypeCell
             
-            cell.mealLabel.text = lunchMealList[1]["meal"] as! String
-            cell.descriptionLabel.text = lunchMealList[1]["meal"] as! String
-            var calories = lunchMealList[1]["calories"] as! String
-            var totalFat = lunchMealList[1]["totalFat"]
+            switch (indexPath.section) {
+            case 0:
+                cell.mealTypeLabel.text = "Breakfast"
+            case 1:
+                cell.mealTypeLabel.text = "Lunch"
+            case 2:
+                cell.mealTypeLabel.text = "Dinner"
+            case 3:
+                cell.mealTypeLabel.text = "Sides"
+            case 4:
+                cell.mealTypeLabel.text = "Kids"
+            default:
+                _ = 0
+            }
             
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
+            let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
             
-            //            print("THIS IS WHERE TABLEVIEW() IS!")
-            //            print(meals[0]["meal"] as! String)
-            //print(meals[lunchMealCounter[1]]["meal"] as! String)
+            switch(indexPath.section) {
+            case 0:
+                //print("LOOKY \(breakfastMeals[0]["name"] as! String)")
+                cell.mealLabel.text = (breakfastMeals[indexPath.row - 1]["name"] as! String)
+                cell.descriptionLabel.text = (breakfastMeals[indexPath.row - 1]["description"] as! String)
+                
+                let calories = "\(breakfastMeals[indexPath.row - 1]["calories"] as! String)g"
+                let totalFat = "\(breakfastMeals[indexPath.row - 1]["totalFat"] as! String)g"
+                let satFat = "\(breakfastMeals[indexPath.row - 1]["satFat"] as! String)g"
+                let sodium = "\(breakfastMeals[indexPath.row - 1]["sodium"] as! String)mg"
+                let carbs = "\(breakfastMeals[indexPath.row - 1]["carbs"] as! String)g"
+                let fiber = "\(breakfastMeals[indexPath.row - 1]["fiber"] as! String)g"
+                let sugar = "\(breakfastMeals[indexPath.row - 1]["sugar"] as! String)g"
+                let protein = "\(breakfastMeals[indexPath.row - 1]["protein"] as! String)g"
+                
+                let ingredients = "Calories - \(calories), Total Fat - \(totalFat), Saturated Fat - \(satFat), Sodium - \(sodium), Carbohydrates - \(carbs), Fiber - \(fiber), Sugar - \(sugar), Protein - \(protein)"
+                cell.ingredientsLabel.text = ingredients
+            case 1:
+                cell.mealLabel.text = (lunchMeals[indexPath.row - 1]["name"] as! String)
+                cell.descriptionLabel.text = (lunchMeals[indexPath.row - 1]["description"] as! String)
+                
+                let calories = "\(lunchMeals[indexPath.row - 1]["calories"] as! String)g"
+                let totalFat = "\(lunchMeals[indexPath.row - 1]["totalFat"] as! String)g"
+                let satFat = "\(lunchMeals[indexPath.row - 1]["satFat"] as! String)g"
+                let sodium = "\(lunchMeals[indexPath.row - 1]["sodium"] as! String)mg"
+                let carbs = "\(lunchMeals[indexPath.row - 1]["carbs"] as! String)g"
+                let fiber = "\(lunchMeals[indexPath.row - 1]["fiber"] as! String)g"
+                let sugar = "\(lunchMeals[indexPath.row - 1]["sugar"] as! String)g"
+                let protein = "\(lunchMeals[indexPath.row - 1]["protein"] as! String)g"
+                
+                let ingredients = "Calories - \(calories), Total Fat - \(totalFat), Saturated Fat - \(satFat), Sodium - \(sodium), Carbohydrates - \(carbs), Fiber - \(fiber), Sugar - \(sugar), Protein - \(protein)"
+                cell.ingredientsLabel.text = ingredients
+            case 2:
+                cell.mealLabel.text = (dinnerMeals[indexPath.row - 1]["name"] as! String)
+                cell.descriptionLabel.text = (dinnerMeals[indexPath.row - 1]["description"] as! String)
+                
+                let calories = "\(dinnerMeals[indexPath.row - 1]["calories"] as! String)g"
+                let totalFat = "\(dinnerMeals[indexPath.row - 1]["totalFat"] as! String)g"
+                let satFat = "\(dinnerMeals[indexPath.row - 1]["satFat"] as! String)g"
+                let sodium = "\(dinnerMeals[indexPath.row - 1]["sodium"] as! String)mg"
+                let carbs = "\(dinnerMeals[indexPath.row - 1]["carbs"] as! String)g"
+                let fiber = "\(dinnerMeals[indexPath.row - 1]["fiber"] as! String)g"
+                let sugar = "\(dinnerMeals[indexPath.row - 1]["sugar"] as! String)g"
+                let protein = "\(dinnerMeals[indexPath.row - 1]["protein"] as! String)g"
+                
+                let ingredients = "Calories - \(calories), Total Fat - \(totalFat), Saturated Fat - \(satFat), Sodium - \(sodium), Carbohydrates - \(carbs), Fiber - \(fiber), Sugar - \(sugar), Protein - \(protein)"
+                cell.ingredientsLabel.text = ingredients
+            case 3:
+                cell.mealLabel.text = (sideMeals[indexPath.row - 1]["name"] as! String)
+                cell.descriptionLabel.text = (sideMeals[indexPath.row - 1]["description"] as! String)
+                
+                let calories = "\(sideMeals[indexPath.row - 1]["calories"] as! String)g"
+                let totalFat = "\(sideMeals[indexPath.row - 1]["totalFat"] as! String)g"
+                let satFat = "\(sideMeals[indexPath.row - 1]["satFat"] as! String)g"
+                let sodium = "\(sideMeals[indexPath.row - 1]["sodium"] as! String)mg"
+                let carbs = "\(sideMeals[indexPath.row - 1]["carbs"] as! String)g"
+                let fiber = "\(sideMeals[indexPath.row - 1]["fiber"] as! String)g"
+                let sugar = "\(sideMeals[indexPath.row - 1]["sugar"] as! String)g"
+                let protein = "\(sideMeals[indexPath.row - 1]["protein"] as! String)g"
+                
+                let ingredients = "Calories - \(calories), Total Fat - \(totalFat), Saturated Fat - \(satFat), Sodium - \(sodium), Carbohydrates - \(carbs), Fiber - \(fiber), Sugar - \(sugar), Protein - \(protein)"
+                cell.ingredientsLabel.text = ingredients
+            case 4:
+                cell.mealLabel.text = (kidsMeals[indexPath.row - 1]["name"] as! String)
+                cell.descriptionLabel.text = (kidsMeals[indexPath.row - 1]["description"] as! String)
+                
+                let calories = "\(kidsMeals[indexPath.row - 1]["calories"] as! String)g"
+                let totalFat = "\(kidsMeals[indexPath.row - 1]["totalFat"] as! String)g"
+                let satFat = "\(kidsMeals[indexPath.row - 1]["satFat"] as! String)g"
+                let sodium = "\(kidsMeals[indexPath.row - 1]["sodium"] as! String)mg"
+                let carbs = "\(kidsMeals[indexPath.row - 1]["carbs"] as! String)g"
+                let fiber = "\(kidsMeals[indexPath.row - 1]["fiber"] as! String)g"
+                let sugar = "\(kidsMeals[indexPath.row - 1]["sugar"] as! String)g"
+                let protein = "\(kidsMeals[indexPath.row - 1]["protein"] as! String)g"
+                
+                let ingredients = "Calories - \(calories), Total Fat - \(totalFat), Saturated Fat - \(satFat), Sodium - \(sodium), Carbohydrates - \(carbs), Fiber - \(fiber), Sugar - \(sugar), Protein - \(protein)"
+                cell.ingredientsLabel.text = ingredients
+            default:
+                _=0
+            }
             
-            lunchMealCounter[1] += 1
+            return cell
         }
-        
-        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        //return restaurantTitle.count
-        return 1
+        let restaurant = restaurantObj["Meals"] as? [PFObject]
+        print(mealTypePicker.numberOfSegments)
+        return mealTypePicker.numberOfSegments - 1
     }
     
     @IBAction func onBack(_ sender: Any) {
@@ -151,6 +286,8 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func onSubmit(_ sender: Any) {
+        selectedRestaurant = restaurantObj//Might be incorrect
+        
         let test = mealTypePicker.selectedSegmentIndex
         print("TEST HERE: \(test)")
         
@@ -240,39 +377,40 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
                 meals["fiber"] = fiber
                 meals["sugar"] = sugar
                 meals["protein"] = protein
-                meals["restaurant"] = self.restaurantObj
+                meals["restaurant"] = self.selectedRestaurant
+                
+                let mealTypeIndex = self.mealTypePicker.selectedSegmentIndex
+                var mealType = ""
+                
+                switch(mealTypeIndex) {
+                case 0:
+                    print("Already denied")
+                case 1:
+                    mealType = "Breakfast"
+                case 2:
+                    mealType = "Lunch"
+                case 3:
+                    mealType = "Dinner"
+                case 4:
+                    mealType = "Sides"
+                case 5:
+                    mealType = "Kids"
+                default:
+                    print("An error has occured")
+                }
+                
+                meals["mealType"] = mealType
                 
                 self.restaurantObj.add(meals, forKey: "Meals")//forKey: "comments"
                 self.restaurantObj.saveInBackground { (success, error) in
                     if success {
-                        print("Comment saved")
+                        print("Meal saved")
                     } else {
                         print("Failed to save comment")
                     }
                 }
                 
                 self.mealTableView.reloadData()
-                
-//                let item = ["meal": mealName, "description": description, "calories": calories, "totalFat": totalFat, "satFat": satFat, "sodium": sodium, "carbs": carbs, "fiber": fiber, "sugar": sugar, "protein": protein]
-//                print(item["meal"]!)//Check
-//
-//                if var lunchMeals: [[String: String]] = self.restaurantObj["lunchMeal"] as? [[String: String]] {
-//
-//                    lunchMeals.append(item)
-//                    self.restaurantObj["lunchMeal"] = lunchMeals
-//
-//                    self.restaurantObj.saveInBackground { (success, error) in
-//                        if success {
-//                            //Dismiss the view, clear the fields, update the tableview
-//                            print("Saved")
-//                        } else {
-//                            print("\(error)")
-//                        }
-//                    }
-//
-//                }
-                
-                //                var lunchMeals: [[String: String]] = (self.restaurantObj["lunchMeal"] as? [[String: String]])!
                 
                 
             }))
