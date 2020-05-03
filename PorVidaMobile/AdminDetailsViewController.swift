@@ -151,7 +151,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
-            let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
+            //let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
             
             switch(indexPath.section) {
             case 0:
@@ -239,7 +239,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let restaurant = restaurantObj["Meals"] as? [PFObject]
+        //let restaurant = restaurantObj["Meals"] as? [PFObject]
         print(mealTypePicker.numberOfSegments)
         return mealTypePicker.numberOfSegments - 1
     }

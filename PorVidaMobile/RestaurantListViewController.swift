@@ -115,8 +115,6 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         var longitude = 0.0
         var latitude = 0.0
         
-        var restaurant = PFObject(className: "Restaurant")
-        
         if !streetAddressField.text!.isEmpty {
             street = streetAddressField.text!
             print(street)
@@ -138,7 +136,7 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         if !longitudeField.text!.isEmpty {
-            var longStr = longitudeField.text!
+            //var longStr = longitudeField.text!
             if let x = Double(longitudeField.text!) {
                 longitude = Double(longitudeField.text!)!
                 print(longitude)
@@ -155,7 +153,7 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         if !latitudeField.text!.isEmpty {
-            var latStr = latitudeField.text!
+            //var latStr = latitudeField.text!
             if let x = Double(latitudeField.text!) {
                 latitude = Double(latitudeField.text!)!
                 print(latitude)
@@ -205,7 +203,7 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
                         //self.dismiss(animated: true, completion: nil)
                         print("Saved")
                     } else {
-                        print("\(error)")
+                        print("\(String(describing: error))")
                     }
                 }
                 

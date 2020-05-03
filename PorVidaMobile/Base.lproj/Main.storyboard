@@ -293,7 +293,7 @@
                                             <outlet property="restaurantName" destination="vGw-MQ-cw7" id="TfP-OE-Mad"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="81" id="IgF-sd-PQw" customClass="RestaurantCell" customModule="PorVidaMobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantDisplayCell" rowHeight="81" id="IgF-sd-PQw" customClass="RestaurantDisplayCell" customModule="PorVidaMobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="78" width="414" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IgF-sd-PQw" id="S8R-tt-51T">
@@ -309,6 +309,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationLabel" destination="pC7-fe-vb6" id="QXB-kY-AEr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

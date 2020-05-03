@@ -9,6 +9,8 @@
 import UIKit
 
 class RestaurantDisplayCell: UITableViewCell {
+    @IBOutlet weak var locationLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,9 +14,11 @@ import Parse
 class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var restaurantObj = [PFObject]()
-    var rest: [PFObject]!
-    var ordered = [PFObject]()
+    var restaurant: [PFObject]!
+    var orderedRest = [PFObject]()
+    var restClone = [PFObject]()
     var rowCount = [Int]()
+    var displayCount = 0
     //var restaurants = [PFObject]()
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,61 +36,43 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func updateTableview() {
-        //let query = PFQuery(className: "Restaurants")
-        
-        /*
-         Pulls data from Heroku to display in tableview
-         */
         let pull = PFQuery(className: "Restaurant")
         pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip", "Meals"])//I edited this
-        
-        /*
-         Uses data query under var title, and sets that query to restaurantObj as PFObject
-         */
-//        pull.findObjectsInBackground { (title, error) in
-//            if title != nil {
-//                print("ZBep")
-//                self.restaurantObj = title!
-//                self.tableView.reloadData()
-//            }
-//        }
-        
+
         do {
             try restaurantObj = pull.findObjects()
         } catch let error {
             print("ERROR: \(error)")
         }
         
-        rest = restaurantObj
+        restaurant = restaurantObj
         
-        
-        
-        var i = restaurantObj.count - 1
         var place = 0
         
-        while !rest.isEmpty {
-            ordered.append(rest.remove(at: 0))
-            place = rest.count - 1
+        while !restaurant.isEmpty {
+            orderedRest.append(restaurant.remove(at: 0))
+            place = restaurant.count - 1
             while place >= 0 {
                 //print("Place: \(place)")
                 //print("Rest: \(ordered.count)")
-                if rest[place]["name"] as! String == ordered[ordered.count - 1]["name"] as! String {
-                    ordered.append(rest.remove(at: place))
+                if restaurant[place]["name"] as! String == orderedRest[orderedRest.count - 1]["name"] as! String {
+                    orderedRest.append(restaurant.remove(at: place))
                 }
                 place -= 1
             }
         }
         
-        print(ordered.count)
+        restClone = orderedRest
+        
+        print(orderedRest.count)
         var counting = 0
-        var rest = ordered
-        var hold = ordered[0]["name"] as! String
-        for index in 0 ..< ordered.count {
-            if hold == ordered[index]["name"] as! String {
-                print("Match: \(ordered[index]["name"] as! String)")
+        var hold = orderedRest[0]["name"] as! String
+        for index in 0 ..< orderedRest.count {
+            if hold == orderedRest[index]["name"] as! String {
+                print("Match: \(orderedRest[index]["name"] as! String)")
                 counting += 1
             } else {
-                hold = ordered[index]["name"] as! String
+                hold = orderedRest[index]["name"] as! String
                 print(hold)
                 print("COUNTING: \(counting)")
                 rowCount.append(counting)
@@ -102,7 +86,7 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
             max += rowCount[count]
         }
         print("MAX: \(max)")
-        rowCount.append(ordered.count - max)
+        rowCount.append(orderedRest.count - max)
         
         for index in 0 ..< rowCount.count {
             print(rowCount[index])
@@ -111,9 +95,6 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Rows based on how many of the same restaurant
-//                for count in 0 ..< ordered.count {
-//            print("Rows: \(ordered[count]["name"] as! String)")
-//        }
         
         print("SECTION \(section)")
         
@@ -121,26 +102,30 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        for count in 0 ..< ordered.count {
-//            print("Main: \(ordered[count]["name"] as! String)")
-//        }
-//        Seems to run row * section
-        
-        print(ordered[indexPath.row]["name"] as! String)
-        var t = ordered[indexPath.row]["name"] as! String
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCell", for: indexPath) as! DisplayCell//Display cell will be used as "Post" cell, to hold all of the similar restaurants
+            displayCount += rowCount[indexPath.section]
+            //print("LOOKIT: \(indexPath.section)")
+            print("ORDERED: \(rowCount[indexPath.section])")
+            print("DISP: \(displayCount)")
+            print("DISPLAY: \(orderedRest[displayCount - 1]["name"] as! String)")
+            cell.restaurantName.text = orderedRest[displayCount - 1]["name"] as! String
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantDisplayCell", for: indexPath) as! RestaurantDisplayCell
             
-            print(ordered[indexPath.row]["name"] as! String)
+            let street = restClone[0]["street"] as! String
+            let city = restClone[0]["city"] as! String
+            let state = restClone[0]["state"] as! String
+            let zip = restClone[0]["zip"] as! String
             
-            //cell.location.text = t//This label needs to be renamed
-//
-//            cell.location.text = location
+            let location = "\(street), \(city), \(state), \(zip)"
+            
+            cell.locationLabel.text = location
+            
+            restClone.remove(at: 0)
             
             return cell
         }
@@ -151,16 +136,8 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     func numberOfSections(in tableView: UITableView) -> Int {
         //solve the section based
         
-        
-        
-//                for count in 0 ..< ordered.count {
-//            print("sections: \(ordered[count]["name"] as! String)")
-//        }
-        
-        var restaurant = ordered
+        let restaurant = orderedRest
         var counter = 1
-//        print(counter)
-//        counter += 1
         
         var held = restaurant[0]["name"] as! String
         for index in 0 ..< restaurant.count {
@@ -170,7 +147,7 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
             }
         }
         
-        print(counter)
+        //print(counter)
         
         return counter
     }
