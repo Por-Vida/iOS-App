@@ -17,6 +17,7 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     var restaurant: [PFObject]!
     var orderedRest = [PFObject]()
     var restClone = [PFObject]()
+    var currentRestaurant: PFObject! = nil
     var rowCount = [Int]()
     var displayCount = 0
     //var restaurants = [PFObject]()
@@ -107,27 +108,41 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCell", for: indexPath) as! DisplayCell//Display cell will be used as "Post" cell, to hold all of the similar restaurants
             displayCount += rowCount[indexPath.section]
             //print("LOOKIT: \(indexPath.section)")
-            print("ORDERED: \(rowCount[indexPath.section])")
-            print("DISP: \(displayCount)")
-            print("DISPLAY: \(orderedRest[displayCount - 1]["name"] as! String)")
-            cell.restaurantName.text = orderedRest[displayCount - 1]["name"] as! String
+//            print("ORDERED: \(rowCount[indexPath.section])")
+//            print("DISP: \(displayCount)")
+//            print("DISPLAY: \(orderedRest[displayCount - 1]["name"] as! String)")
+            print("ERROR \(displayCount - 1)")
+            
+            if displayCount - 1 < orderedRest.count {
+                cell.restaurantName.text = orderedRest[displayCount - 1]["name"] as! String
+            }
             
             return cell
         } else {
+            
+            //while restClone.isEmpty {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantDisplayCell", for: indexPath) as! RestaurantDisplayCell
             
-            let street = restClone[0]["street"] as! String
-            let city = restClone[0]["city"] as! String
-            let state = restClone[0]["state"] as! String
-            let zip = restClone[0]["zip"] as! String
-            
-            let location = "\(street), \(city), \(state), \(zip)"
-            
-            cell.locationLabel.text = location
-            
-            restClone.remove(at: 0)
-            
-            return cell
+            if restClone.count != 0 {
+                print("Boodoo dodo")
+                
+                let street = restClone[0]["street"] as! String
+                let city = restClone[0]["city"] as! String
+                let state = restClone[0]["state"] as! String
+                let zip = restClone[0]["zip"] as! String
+                
+                let location = "\(street), \(city), \(state), \(zip)"
+                
+                cell.locationLabel.text = location
+                
+                restClone.remove(at: 0)
+                //}
+                
+                return cell
+            } else {
+                return cell
+            }
+
         }
         
         
@@ -163,20 +178,64 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-//        // Find selected restaurant
-//        let cell = sender as! UITableViewCell
-//        let indexPath = tableView.indexPath(for: cell)!
-//        let restaurant = restaurant[indexPath.row]
-//        // Pass the selected restaurant over to next view controller
-//        let detailsVC = segue.destination as! MenuDetailsViewController
-//        detailsVC.restaurant = restaurant
-//        //detailsVC.selectedPet = selectedPet
-//        //tableView.deselectRow(at: IndexPath, animated: true)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if indexPath.row != 0 {
+////            print(indexPath)
+////            print("\(indexPath.section), \(indexPath.row)")
+//            let selectedCell = tableView.cellForRow(at: indexPath) as! RestaurantDisplayCell
+//
+//            var restaurantIndex = 0
+//            var index = 0
+//
+//            if indexPath.section > 1 {
+//                restaurantIndex = (indexPath.section * 2) + (indexPath.row)
+//            } else if indexPath.section == 0 {
+//                restaurantIndex = indexPath.row
+//            } else {
+//                index = indexPath.section + 1
+//                restaurantIndex = ((index * 2) + (indexPath.row)) - 1
+//            }
+//
+//            currentRestaurant = orderedRest[restaurantIndex-1]
+//            print("CURRENT PRE: \(currentRestaurant)")
+//        }
     }
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //print("Text")
+//        let cell = sender as! UITableViewCell
+//        let indexPath = tableView.indexPath(for: cell)!
+//        let restaurantPass = orderedRest[indexPath.row]
+        //let indexPath = tableView.indexPath(for: cell)!
+        
+        let indexPath = tableView.indexPathForSelectedRow!
+        print(indexPath)
+        
+        if indexPath.row != 0 {
+            //            print(indexPath)
+            //            print("\(indexPath.section), \(indexPath.row)")
+            let selectedCell = tableView.cellForRow(at: indexPath) as! RestaurantDisplayCell
+            
+            var restaurantIndex = 0
+            var index = 0
+            
+            if indexPath.section > 1 {
+                restaurantIndex = (indexPath.section * 2) + (indexPath.row)
+            } else if indexPath.section == 0 {
+                restaurantIndex = indexPath.row
+            } else {
+                index = indexPath.section + 1
+                restaurantIndex = ((index * 2) + (indexPath.row)) - 1
+            }
+            
+            currentRestaurant = orderedRest[restaurantIndex-1]
+        }
+        
+        let restaurantDetails = segue.destination as! MenuDetailsViewController
+        restaurantDetails.restaurant = currentRestaurant!
+        //print("CURRENT: \(currentRestaurant)")
+        //print(restaurantDetails.restaurant["name"] as! String)
+    }
 }
 

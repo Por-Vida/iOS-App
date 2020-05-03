@@ -11,14 +11,22 @@ import Parse
 
 class MenuDetailsViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     var restaurant: PFObject!
+    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("INSIDE: \(restaurant["name"] as! String)")
 //       tableView.delegate = self
 //       tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func onBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 
     /*
