@@ -293,29 +293,39 @@
                                             <outlet property="restaurantName" destination="vGw-MQ-cw7" id="TfP-OE-Mad"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantDisplayCell" rowHeight="55" id="IgF-sd-PQw" customClass="RestaurantDisplayCell" customModule="PorVidaMobile" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="78" width="414" height="55"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="80" id="IgF-sd-PQw" customClass="RestaurantCell" customModule="PorVidaMobile" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="78" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IgF-sd-PQw" id="S8R-tt-51T">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMl-fW-Mb5" userLabel="Restaurant">
+                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pC7-fe-vb6">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="35"/>
+                                                    <rect key="frame" x="20" y="43" width="374" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pC7-fe-vb6" firstAttribute="leading" secondItem="S8R-tt-51T" secondAttribute="leading" constant="20" id="4A5-Go-nsT"/>
-                                                <constraint firstAttribute="bottom" secondItem="pC7-fe-vb6" secondAttribute="bottom" constant="20" id="ZKl-39-31d"/>
-                                                <constraint firstAttribute="trailing" secondItem="pC7-fe-vb6" secondAttribute="trailing" constant="20" id="fFh-k3-BOa"/>
-                                                <constraint firstItem="pC7-fe-vb6" firstAttribute="top" secondItem="S8R-tt-51T" secondAttribute="top" id="mie-2b-5D1"/>
+                                                <constraint firstItem="lMl-fW-Mb5" firstAttribute="top" secondItem="S8R-tt-51T" secondAttribute="top" constant="11" id="8gJ-JK-bYf"/>
+                                                <constraint firstItem="pC7-fe-vb6" firstAttribute="leading" secondItem="S8R-tt-51T" secondAttribute="leading" constant="20" id="K79-1e-vj9"/>
+                                                <constraint firstAttribute="bottom" secondItem="pC7-fe-vb6" secondAttribute="bottom" constant="13" id="QiY-Ai-cpD"/>
+                                                <constraint firstItem="lMl-fW-Mb5" firstAttribute="leading" secondItem="S8R-tt-51T" secondAttribute="leading" constant="20" id="RyN-3a-aQq"/>
+                                                <constraint firstItem="pC7-fe-vb6" firstAttribute="top" secondItem="lMl-fW-Mb5" secondAttribute="bottom" constant="8" id="ZuZ-Et-D16"/>
+                                                <constraint firstAttribute="trailing" secondItem="lMl-fW-Mb5" secondAttribute="trailing" constant="20" id="vsj-n3-0GS"/>
+                                                <constraint firstAttribute="trailing" secondItem="pC7-fe-vb6" secondAttribute="trailing" constant="20" id="xkW-y6-EBU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="locationLabel" destination="pC7-fe-vb6" id="QXB-kY-AEr"/>
+                                            <outlet property="location" destination="pC7-fe-vb6" id="6AY-5Y-lrF"/>
+                                            <outlet property="restaurant" destination="lMl-fW-Mb5" id="Rwp-Ea-SIt"/>
                                             <segue destination="LAh-Qf-YfL" kind="presentation" id="Elk-xu-0Q1"/>
                                         </connections>
                                     </tableViewCell>
