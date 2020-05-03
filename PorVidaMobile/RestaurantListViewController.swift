@@ -60,6 +60,8 @@ class RestaurantListViewController: UIViewController, UITableViewDelegate, UITab
                 self.tableView.reloadData()
             }
         }
+        
+        //print(restaurantObj)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

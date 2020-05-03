@@ -68,6 +68,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidAppear(animated)
         
         restaurantNameLabel.text = restaurantObj["name"] as! String
+        
         let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
         for index in 0 ..< meal.count {
             if meal[index]["mealType"] as? String == "Breakfast" {

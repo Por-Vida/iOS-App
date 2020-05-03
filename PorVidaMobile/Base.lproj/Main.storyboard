@@ -246,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
         </scene>
-        <!--Restauarant Display View Controller-->
+        <!--Restaurant Display View Controller-->
         <scene sceneID="ene-bw-5wa">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="KDW-JR-FHA" customClass="RestauarantDisplayViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="KDW-JR-FHA" customClass="RestaurantDisplayViewController" customModule="PorVidaMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="znh-zR-pSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,7 +268,7 @@
                                 <rect key="frame" x="0.0" y="202" width="414" height="606"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="iWT-CU-aQ4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DisplayCell" rowHeight="50" id="iWT-CU-aQ4" customClass="DisplayCell" customModule="PorVidaMobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iWT-CU-aQ4" id="5z8-7b-XJh">
@@ -289,8 +289,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="vGw-MQ-cw7" secondAttribute="trailing" constant="20" id="tsf-Bi-N7K"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="restaurantName" destination="vGw-MQ-cw7" id="TfP-OE-Mad"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="81" id="IgF-sd-PQw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="81" id="IgF-sd-PQw" customClass="RestaurantCell" customModule="PorVidaMobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="78" width="414" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IgF-sd-PQw" id="S8R-tt-51T">
@@ -345,6 +348,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cqd-Rs-QYY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="zdg-Wl-EfY" id="nWE-lj-PMC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R13-3G-r3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1069,7 +1075,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="P9X-fT-zWE"/>
-        <segue reference="xJI-GM-iuf"/>
+        <segue reference="zXi-2Z-SGy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Por Vida - Figma" width="108" height="108"/>
