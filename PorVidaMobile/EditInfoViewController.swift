@@ -9,12 +9,19 @@
 import UIKit
 
 class EditInfoViewController: UIViewController {
-
+    @IBOutlet weak var websiteField: UITextField!
+    @IBOutlet weak var phoneNumField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func onBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 
     /*
