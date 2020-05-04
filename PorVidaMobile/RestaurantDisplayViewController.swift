@@ -20,7 +20,7 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     var ordered = [PFObject]()
     var currentRestaurant: PFObject!/* = nil*/
     var rowCount = [Int]()
-    var arr = [String]()
+    var nameStrings = [String]()
     var displayCount = 0
     
     var restCollection: PFObject!
@@ -39,29 +39,27 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //updateTableview()
     }
     
     func updateTableview() {
+        /*
+         Creates an array of all Restaurant objects
+         */
         let pull = PFQuery(className: "Restaurant")
         pull.includeKeys(["name", "managerLast", "managerFirst", "street", "city", "state", "zip", "Meals"])//I edited this
         
-
         do {
             try restaurantObj = pull.findObjects()
         } catch let error {
             print("ERROR: \(error)")
         }
         
+        /*
+         Creates an array that contains the restaurant objects in order of similar names
+         */
         rest = restaurantObj
-        
-        
-        
         var i = restaurantObj.count - 1
         var place = 0
-        
-        
-        
         while !rest.isEmpty {
             ordered.append(rest.remove(at: 0))
             place = rest.count - 1
@@ -74,189 +72,99 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
             }
         }
         
-        print(ordered.count)
-        var counting = 0
+        /*
+         Creates an array that holds the names of restaurants to be displayed when printing the cells where similar names fall under
+         */
+        var restCounter = 0
         var rest = ordered
-        var hold = ordered[0]["name"] as! String
+        var restCompare = ordered[0]["name"] as! String
         
         for index in 0 ..< ordered.count {
             
-            if hold == ordered[index]["name"] as! String {
-                counting += 1
+            if restCompare == ordered[index]["name"] as! String {
+                restCounter += 1
             } else {
-                arr.append(hold)
-                hold = ordered[index]["name"] as! String
-                //print(hold)
-                //print("COUNTING: \(counting)")
-                rowCount.append(counting)
-                counting = 1
+                nameStrings.append(restCompare)
+                restCompare = ordered[index]["name"] as! String
+                rowCount.append(restCounter)
+                restCounter = 1
             }
         }
-        arr.append(ordered[ordered.count - 1]["name"] as! String)
-        print("ARRAY: \(arr)")
+        nameStrings.append(ordered[ordered.count - 1]["name"] as! String)
+        //print("ARRAY: \(nameStrings)")
         
+        /*
+         Creates an array that holds the total amount of each same name restaurant for calculating the cells per section
+         */
         var max = 0
         for count in 0 ..< rowCount.count {
-            //print("LOOK \(rowCount[count])")
             max += rowCount[count]
         }
-        //print("MAX: \(max)")
         rowCount.append(ordered.count - max)
-        
-        for index in 0 ..< rowCount.count {
-            print(rowCount[index])
-        }
-        
-        print(arr)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print("ROW COUNT: \(rowCount[section])")
         return rowCount[section] + 1
-        //return 1
-        
-        //return ordered.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var orderCopy = ordered
-        
         if indexPath.row == 0 {
+            
+            /*
+             When every new section is introduced, adds a cell that defines the rows below it as restaurants under the same name
+             */
             let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCell", for: indexPath) as! DisplayCell//Display cell will be used as "Post" cell, to hold all of the similar restaurants
             if displayCount - 1 < ordered.count {
-                cell.restaurantName.text = arr[indexPath.section]
-                print("HEADER: \(arr[indexPath.section])")
+                cell.restaurantName.text = nameStrings[indexPath.section]
+                print("HEADER: \(nameStrings[indexPath.section])")
             }
             
             return cell
         } else {
+            
+            /*
+             Creates cells of restaurant information
+             */
             let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
             
-            var k = 0
+            /*
+             A small algorithm to calculate the next cell to be placed by adding the sum of rowCount by an indexPath section to find how many cells have been placed previously
+             */
+            var rowCountSum = 0
             
             if indexPath.section > 0 {
                 for i in 0 ..< indexPath.section {
-//                    print("Sec loop: \(indexPath.section - 1)")
-//                    print("rowCount: \(rowCount[indexPath.section])")
-                    k += rowCount[i]
+                    rowCountSum += rowCount[i]
                     print("Sec \(indexPath.section) w/ \(indexPath.section - 1)")
                 }
             }
-            
-            //print("sec: \(indexPath.section)")
-            
-            k += indexPath.row
-            print("K: \(k)")
-            
-//            var restaurantIndex = 0
-//            var index = 0
-            
-//            if indexPath.section > 1 {
-//                restaurantIndex = (indexPath.section * 2) + (indexPath.row)
-//            } else if indexPath.section == 0 {
-//                restaurantIndex = indexPath.row
-//            } else {
-//                index = indexPath.section + 1
-//                restaurantIndex = ((index * 2) + (indexPath.row)) - 1
-//            }
-            
-            print("REST NAME: \(ordered[k - 1]["street"] as! String)")
-            //print("k: \(k)")
-            
-            let street = ordered[k - 1]["street"] as! String
-            let city = ordered[k - 1]["city"] as! String
-            let state = ordered[k - 1]["state"] as! String
-            let zip = ordered[k - 1]["zip"] as! String
-            
-            let location = "\(street), \(city), \(state), \(zip)"
-            
-            cell.restaurant.text = (ordered[k - 1]["name"] as! String)
-            cell.location.text = location
-            
-            //orderCopy.remove(at: indexPath.row)
-            
-            return cell
-        }
-        
-//        print("Index: \(indexPath.row)")
-//
-//        if !isHeld {
-//            var cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCell") as! DisplayCell
-//
-//            restCollection = ordered[indexPath.row]
-//            isHeld = true
-//            print("Header: \(restCollection["name"] as! String)")
-//            cell.restaurantName.text = restCollection["name"] as! String
-//
-//            return cell
-//        } else {
-//            var cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
-//
-//            //Basic cell thins
-//            print("Rest: \(ordered[indexPath.row]["name"] as! String)")
-//            cell.restaurant.text = ordered[indexPath.row]["name"] as! String
-//
-//            if restCollection["name"] as! String != ordered[indexPath.row + 1]["name"] as! String{
-//                isHeld = false
-//            }
-//            return cell
-//        }
-        
-        
-        /*
-        var orderCopy = ordered
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayCell", for: indexPath) as! DisplayCell//Display cell will be used as "Post" cell, to hold all of the similar restaurants
-            if displayCount - 1 < ordered.count {
-                //print("DISP: \(displayCount)")
-                cell.restaurantName.text = arr[indexPath.section]
-            }
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
-            
-            
+            rowCountSum += indexPath.row
             
             /*
-            var restaurantIndex = 0
-            var index = 0
-            
-            if indexPath.section > 1 {
-                restaurantIndex = (indexPath.section * 2) + (indexPath.row)
-            } else if indexPath.section == 0 {
-                restaurantIndex = indexPath.row
-            } else {
-                index = indexPath.section + 1
-                restaurantIndex = ((index * 2) + (indexPath.row)) - 1
-            }
-            print("Path: \(indexPath)")
-            
-            print(restaurantIndex - 1)
-            let street = ordered[restaurantIndex - 1]["street"] as! String
-            let city = ordered[restaurantIndex - 1]["city"] as! String
-            let state = ordered[restaurantIndex - 1]["state"] as! String
-            let zip = ordered[restaurantIndex - 1]["zip"] as! String
+             Creates the location, and sets the location and name to the cell
+             */
+            let street = ordered[rowCountSum - 1]["street"] as! String
+            let city = ordered[rowCountSum - 1]["city"] as! String
+            let state = ordered[rowCountSum - 1]["state"] as! String
+            let zip = ordered[rowCountSum - 1]["zip"] as! String
             
             let location = "\(street), \(city), \(state), \(zip)"
             
-            cell.restaurant.text = (ordered[restaurantIndex - 1]["name"] as! String)
+            cell.restaurant.text = (ordered[rowCountSum - 1]["name"] as! String)
             cell.location.text = location
-            
-            orderCopy.remove(at: indexPath.row)
- */
             
             return cell
         }
- */
-        
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
+        /*
+         Calculates the amount of sections based on when the held value is not the same as a name of a restaurant in an array of PFObjects
+         
+         Note: this might be simplified by returning the count of "nameStrings" array
+         */
         var restaurant = ordered
         var counter = 1
         
@@ -268,10 +176,7 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
             }
         }
         
-        //print(counter)
-        
         return counter
-        //return 1
     }
     
     @IBAction func toRestaurantList(_ sender: Any) {
@@ -286,39 +191,38 @@ class RestaurantDisplayViewController: UIViewController, UITableViewDelegate, UI
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //print("Text")
-        //        let cell = sender as! UITableViewCell
-        //        let indexPath = tableView.indexPath(for: cell)!
-        //        let restaurantPass = orderedRest[indexPath.row]
-        //let indexPath = tableView.indexPath(for: cell)!
         
         let indexPath = tableView.indexPathForSelectedRow!
         print(indexPath)
         
         if indexPath.row != 0 {
-            //            print(indexPath)
-            //            print("\(indexPath.section), \(indexPath.row)")
-            //let selectedCell = tableView.cellForRow(at: indexPath) as! RestaurantDisplayCell
+//            var restaurantIndex = 0
+//            var index = 0
+//
+//            if indexPath.section > 1 {
+//                restaurantIndex = (indexPath.section * 2) + (indexPath.row)
+//            } else if indexPath.section == 0 {
+//                restaurantIndex = indexPath.row
+//            } else {
+//                index = indexPath.section + 1
+//                restaurantIndex = ((index * 2) + (indexPath.row)) - 1
+//            }
             
-            var restaurantIndex = 0
-            var index = 0
+            var rowCountSum = 0
             
-            if indexPath.section > 1 {
-                restaurantIndex = (indexPath.section * 2) + (indexPath.row)
-            } else if indexPath.section == 0 {
-                restaurantIndex = indexPath.row
-            } else {
-                index = indexPath.section + 1
-                restaurantIndex = ((index * 2) + (indexPath.row)) - 1
+            if indexPath.section > 0 {
+                for i in 0 ..< indexPath.section {
+                    rowCountSum += rowCount[i]
+                    print("Sec \(indexPath.section) w/ \(indexPath.section - 1)")
+                }
             }
+            rowCountSum += indexPath.row
             
-            currentRestaurant = ordered[restaurantIndex-1]
+            currentRestaurant = ordered[rowCountSum - 1]
         }
         
         let restaurantDetails = segue.destination as! MenuDetailsViewController
         restaurantDetails.restaurant = currentRestaurant!
-        //print("CURRENT: \(currentRestaurant)")
-        //print(restaurantDetails.restaurant["name"] as! String)
     }
     
     
