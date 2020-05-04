@@ -12,6 +12,7 @@
 		71052769245DD94B004953A2 /* RestaurantDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71052768245DD94B004953A2 /* RestaurantDisplayViewController.swift */; };
 		7105276B245DDD83004953A2 /* DisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105276A245DDD83004953A2 /* DisplayCell.swift */; };
 		7105276D245DDDEE004953A2 /* MenuDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105276C245DDDEE004953A2 /* MenuDetailsViewController.swift */; };
+		8B0478CF245FA27A00756292 /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0478CE245FA27A00756292 /* EditInfoViewController.swift */; };
 		8B27001C245D13E60060472B /* MealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27001B245D13E60060472B /* MealTypeCell.swift */; };
 		8B371EC8245BC42B00DAE791 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B371EC7245BC42B00DAE791 /* MealCell.swift */; };
 		8B3CEB86244E203100F69F52 /* AdminDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */; };
@@ -58,6 +59,7 @@
 		71052768245DD94B004953A2 /* RestaurantDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDisplayViewController.swift; sourceTree = "<group>"; };
 		7105276A245DDD83004953A2 /* DisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCell.swift; sourceTree = "<group>"; };
 		7105276C245DDDEE004953A2 /* MenuDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailsViewController.swift; sourceTree = "<group>"; };
+		8B0478CE245FA27A00756292 /* EditInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		8B27001B245D13E60060472B /* MealTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeCell.swift; sourceTree = "<group>"; };
 		8B371EC7245BC42B00DAE791 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDetailsViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				8B74EDA92444EFF700B86FF9 /* SettingsViewController.swift */,
 				AB9D7508245CD36500C44ED4 /* MapViewController.swift */,
 				AB9D750A245DCCFC00C44ED4 /* mapRestaurant.swift */,
+				8B0478CE245FA27A00756292 /* EditInfoViewController.swift */,
 				8B3CEB85244E203100F69F52 /* AdminDetailsViewController.swift */,
 				8B74EDAB2444F39600B86FF9 /* RestaurantListViewController.swift */,
 				8B74EDAF24455E4E00B86FF9 /* RestaurantCell.swift */,
@@ -451,6 +454,7 @@
 				7105276B245DDD83004953A2 /* DisplayCell.swift in Sources */,
 				8B40EECE243BAD1600DE69B9 /* AppDelegate.swift in Sources */,
 				8B3CEB86244E203100F69F52 /* AdminDetailsViewController.swift in Sources */,
+				8B0478CF245FA27A00756292 /* EditInfoViewController.swift in Sources */,
 				8B7255F1245EC11400B99A3F /* RestaurantDisplayCell.swift in Sources */,
 				AB9D7509245CD36500C44ED4 /* MapViewController.swift in Sources */,
 				8B371EC8245BC42B00DAE791 /* MealCell.swift in Sources */,
