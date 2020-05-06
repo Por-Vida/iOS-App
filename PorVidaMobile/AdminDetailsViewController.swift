@@ -53,20 +53,34 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     var (breakfastMeals, lunchMeals, dinnerMeals, sideMeals, kidsMeals): ([PFObject], [PFObject], [PFObject], [PFObject], [PFObject]) = ([], [], [], [], [])
     
+    var isClicked = false
+    
+    var isDuped = false
+    
     //var selectedRestaurant: PFObject!
     //var lunchMealCounter: [Int] = [0,0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("In Admin")
+        //mealTableView.reloadData()
+        
+        
         mealTableView.delegate = self
         mealTableView.dataSource = self
+        
         
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        mealTableView.refreshControl?.endRefreshing()
+        mealTableView.delegate = self
+        mealTableView.dataSource = self
         
+//        var indexPath = IndexPath(row: 0, section: 0)
+//        mealTableView.deleteRows(at: [indexPath], with: .automatic)
         restaurantNameLabel.text = restaurantObj["name"] as! String
         
         let meal = (restaurantObj["Meals"] as? [PFObject]) ?? []
@@ -113,20 +127,23 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return breakfastCount + 1
-        } else if section == 1 {
-            return lunchCount + 1
-        } else if section == 2 {
-            return dinnerCount + 1
-        } else if section == 3 {
-            return sideCount + 1
-        } else if section == 4 {
-            return kidCount + 1
-        } else {
-            return 0
-        }
+//        if !isDuped {
+            if section == 0 {
+                return breakfastCount + 1
+            } else if section == 1 {
+                return lunchCount + 1
+            } else if section == 2 {
+                return dinnerCount + 1
+            } else if section == 3 {
+                return sideCount + 1
+            } else if section == 4 {
+                return kidCount + 1
+            } else {
+                return 0
+            }
+//        } else {
+//            return 0
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -245,11 +262,17 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func onBack(_ sender: Any) {
+        isClicked = true
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onEditProfile(_ sender: Any) {
-        print("This is the website, etc")
+        //print("This is the website, etc")
+        //performSegue(withIdentifier: "toEdit", sender: nil)
+//        dismiss(animated: true, completion: nil)
+//        let vc = EditInfoViewController(nibName: "EditInfoViewController", bundle: nil)
+//        vc.restaurant = restaurantObj
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func onNewMeal(_ sender: Any) {
@@ -409,13 +432,20 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
             self.present(alert, animated: true, completion: nil)
         }
     }
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    /*
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        
+//        print("Tet")
+//        if !isClicked {
+//            isDuped = true
+//                let restaurantInfo = segue.destination as! EditInfoViewController
+//                restaurantInfo.restaurant = self.restaurantObj
+//                print("Text is here at the end")
+//        }
      }
-     */
+ */
 }
