@@ -49,22 +49,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addAnnotation(mcdonalliesOne)
     }
     
+    
+    
+    
+    // Function to add the user's current location to the map and center the map view on the user
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last{
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-            self.mapView.setRegion(region, animated: true)
-        }
         
         guard let location = locations.last else { return }
         currentLatitude = location.coordinate.latitude
         currentLongitude = location.coordinate.longitude
+        let center = CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        
         
         let userLocation = MKPointAnnotation()
         userLocation.coordinate.latitude = currentLatitude
         userLocation.coordinate.longitude = currentLongitude
         userLocation.title = "Current Location"
         mapView.addAnnotation(userLocation)
+        
+        mapView.setRegion(region, animated: true)
+        
+        
     }
     
     /*
