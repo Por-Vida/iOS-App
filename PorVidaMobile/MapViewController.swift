@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Parse
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -17,7 +18,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
     @Published var currentLatitude: Double = 0.0
     @Published var currentLongitude: Double = 0.0
-    
+    var restaurants = [PFObject]()
+    var restaurant: PFObject!
+    var mapRestaurants = [mapRestaurant]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +45,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.isScrollEnabled = true
 
         
-        // Creating one test pin
-        let mcdonalliesOne = mapRestaurant(title: "McDonallies", coordinate: CLLocationCoordinate2D(latitude: 29.884420, longitude: -97.714650), info: "Test McDonalds")
+        // Creating the restaurants for the map:
+        let query = PFQuery(className: "Restaurants")
         
-        // Adding it to the map view
-        mapView.addAnnotation(mcdonalliesOne)
+        // Query to get all of the restaurants into a usable array
+        query.findObjectsInBackground { (restaurants, error) in
+            if restaurants != nil {
+                self.restaurants = restaurants!
+            }
+        }
+        
+        // For loop to create a map object for each restaurant in the array
+        for index in 0 ..< restaurants.count {
+            // Restaurant name on the map
+            let name = restaurants[index]["name"] as! String
+            
+            // Getting the restaurant's coordinates for the map
+            let lat = restaurants[index]["latitude"] as! Double
+            let long = restaurants[index]["longitude"] as! Double
+            let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            // information is required to add an annotation
+            let information = restaurants[index]["name"] as! String
+            
+            // Creating the restaurant and adding it to an array
+            mapRestaurants[index] = mapRestaurant(title: name, coordinate: location, info: information)
+            
+            // Adding the Restaurants to the map
+            mapView.addAnnotation(mapRestaurants[index])
+        }
     }
     
     
