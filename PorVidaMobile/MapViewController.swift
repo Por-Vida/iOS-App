@@ -58,9 +58,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         guard let location = locations.last else { return }
         currentLatitude = location.coordinate.latitude
         currentLongitude = location.coordinate.longitude
-        let center = CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-        
         
         let userLocation = MKPointAnnotation()
         userLocation.coordinate.latitude = currentLatitude
@@ -68,6 +65,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         userLocation.title = "Current Location"
         mapView.addAnnotation(userLocation)
         
+        let center = CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         mapView.setRegion(region, animated: true)
         
         
