@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class EditInfoViewController: UIViewController {
+    var restaurant: PFObject?
+    
     @IBOutlet weak var websiteUrlField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
     
@@ -67,7 +70,7 @@ class EditInfoViewController: UIViewController {
         super.viewDidLoad()
         //Set textFields to some pulled object to insert existing operating hours
         //satLeftSwitch.setOn(<#T##on: Bool##Bool#>, animated: <#T##Bool#>)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -122,14 +125,24 @@ class EditInfoViewController: UIViewController {
         var sunLeftBool = sunLeftSwitch.isOn
         var sunRightBool = sunRightSwitch.isOn
         
-        print("Test text")
-        if Int(monHrLeft) == nil || Int(monMinLeft) == nil || Int(monHrRight) == nil || Int(monMinRight) == nil || tueHrLeft == "Empty" || tueMinLeft == "Empty" || tueHrRight == "Empty" || tueMinRight == "Empty" || wedHrLeft == "Empty" || wedMinLeft == "Empty" || wedHrRight == "Empty" || wedMinRight == "Empty" || thurHrLeft == "Empty" || thurMinLeft == "Empty" || thurHrRight == "Empty" || thurMinRight == "Empty" || friHrLeft == "Empty" || friMinLeft == "Empty" || friHrRight == "Empty" || friMinRight == "Empty" || satHrLeft == "Empty" || satMinLeft == "Empty" || satHrRight == "Empty" || satMinRight == "Empty" || sunHrLeft == "Empty" || sunMinLeft == "Empty" || sunHrRight == "Empty" || sunMinRight == "Empty" {
-            print("Is not full")
+        if Int(monHrLeft) == nil || Int(monMinLeft) == nil || Int(monHrRight) == nil || Int(monMinRight) == nil || Int(tueHrLeft) == nil || Int(tueMinLeft) == nil || Int(tueHrRight) == nil || Int(tueMinRight) == nil || Int(wedHrLeft) == nil || Int(wedMinLeft) == nil || Int(wedHrRight) == nil || Int(wedMinRight) == nil || Int(thurHrLeft) == nil || Int(thurMinLeft) == nil || Int(thurHrRight) == nil || Int(thurMinRight) == nil || Int(friHrLeft) == nil || Int(friMinLeft) == nil || Int(friHrRight) == nil || Int(friMinRight) == nil || Int(satHrLeft) == nil || Int(satMinLeft) == nil || Int(satHrRight) == nil || Int(satMinRight) == nil || Int(sunHrLeft) == nil || Int(sunMinLeft) == nil || Int(sunHrRight) == nil || Int(sunMinRight) == nil {
+            let alert = UIAlertController(title: "Incomplete Fields", message: "Please fill out the operating hours table to save and complete the form.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
-            print(Int(monHrLeft)!)
+
         }
     }
     
+    @IBAction func onBack(_ sender: Any) {
+        let alert = UIAlertController(title: "Unsaved Changes", message: "You are about to go back to the previous page without saving. Are you sure you want to continue?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
 
     /*
