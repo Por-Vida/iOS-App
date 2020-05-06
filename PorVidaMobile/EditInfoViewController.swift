@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class EditInfoViewController: UIViewController {
-    var restaurant: PFObject?
+    var restaurant: PFObject!
     
     @IBOutlet weak var websiteUrlField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
@@ -74,6 +74,10 @@ class EditInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     @IBAction func onSaveAndBack(_ sender: Any) {
         let monHrLeft = self.monHrLeft.text ?? ""
         let monMinLeft = self.monMinLeft.text ?? ""
@@ -129,8 +133,65 @@ class EditInfoViewController: UIViewController {
             let alert = UIAlertController(title: "Incomplete Fields", message: "Please fill out the operating hours table to save and complete the form.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            
+            print(restaurant["name"] as! String)
         } else {
-
+            
+            let hours = PFObject(className: "Hours")
+            
+            hours["monHourFirst"] = monHrLeft
+            hours["monMinFirst"] = monMinLeft
+            hours["monHourSecond"] = monHrRight
+            hours["monMinSecond"] = monMinRight
+            
+            hours["tueHourFirst"] = tueHrLeft
+            hours["tueMinFirst"] = tueMinLeft
+            hours["tueHourSecond"] = tueHrRight
+            hours["tueMinSecond"] = tueMinRight
+            
+            hours["wedHourFirst"] = wedHrLeft
+            hours["wedMinFirst"] = wedMinLeft
+            hours["wedHourSecond"] = wedHrRight
+            hours["wedMinSecond"] = wedMinRight
+            
+            hours["thurHourFirst"] = thurHrLeft
+            hours["thurMinFirst"] = thurMinLeft
+            hours["thurHourSecond"] = thurHrRight
+            hours["thurMinSecond"] = thurMinRight
+            
+            hours["friHourFirst"] = friHrLeft
+            hours["friMinFirst"] = friMinLeft
+            hours["friHourSecond"] = friHrRight
+            hours["friMinSecond"] = friMinRight
+            
+            hours["satHourFirst"] = satHrLeft
+            hours["satMinFirst"] = satMinLeft
+            hours["satHourSecond"] = satHrRight
+            hours["satMinSecond"] = satMinRight
+            
+            hours["sunHourFirst"] = sunHrLeft
+            hours["sunMinFirst"] = sunMinLeft
+            hours["sunHourSecond"] = sunHrRight
+            hours["sunMinSecond"] = sunMinRight
+            
+            hours["restaurant"] = self.restaurant
+            
+            let website = websiteUrlField.text ?? ""
+            let phone = phoneNumberField.text ?? ""
+            
+            self.restaurant.add(hours, forKey: "Hours")
+            self.restaurant.add(website, forKey: "website")
+            self.restaurant.add(phone, forKey: "phone")
+            self.restaurant.saveInBackground { (success, error) in
+                if success {
+                    print("Complete of upload")
+                } else {
+                    print("Faile to upload details")
+                }
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+            //reload
         }
     }
     

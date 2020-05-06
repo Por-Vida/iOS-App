@@ -424,7 +424,7 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
                     }
                 }
                 
-                self.mealTableView.reloadData()
+                //self.mealTableView.reloadData()
                 
                 
             }))
@@ -434,18 +434,16 @@ class AdminDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    /*
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        print("Tet")
-//        if !isClicked {
-//            isDuped = true
-//                let restaurantInfo = segue.destination as! EditInfoViewController
-//                restaurantInfo.restaurant = self.restaurantObj
-//                print("Text is here at the end")
-//        }
-     }
- */
+        print("Tet")
+        if !isClicked {
+            //isDuped = true
+            let restaurantInfo = segue.destination as! EditInfoViewController
+            restaurantInfo.restaurant = self.restaurantObj
+            print("Text is here at the end")
+        }
+    }
 }
