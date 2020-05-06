@@ -32,10 +32,11 @@ The following user stories are complete:
 - [x] List of restaurants participating in Por Vida, including their contact information and address
 - [x] The menus of the participating restaurants (including kid and adult menus)
 - [x] Admin sign in to allow updates to changes in restaurant information, including loction and menus
-- [ ] An easy-to-use map of all participating restaurants
+- [x] An easy-to-use map of all participating restaurants
 
 
 The following **additional** user stories are implemented:
+- [ ] The ability to tap on a restaurant on the map to view its menu
 - [ ] Link to download Healthy Trail PDF in multiple languages
 - [ ] Links to extraneous information included on the website (such as business partner information)
 - [ ] Settings to control (ie language settings)
