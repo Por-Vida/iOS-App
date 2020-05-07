@@ -142,6 +142,9 @@ Describe any challenges encountered while building the app.
 
 ## Video Walkthrough
 
+A narrated walkthrough of the final layout for the Por Vida Mobile App:
+<img src='https://github.com/Por-Vida/iOS-App/blob/master/Porvida.mp4' title='Por Vida Walkthrough' width='' />
+
 A walkthrough of the current layout for the Por Vida Mobile app:
 
 <img src='https://raw.githubusercontent.com/TempSchoolAcct/TotallyRealMathSolutions/master/test.gif' title='Por Vida Walkthrough' width='' alt='Por Vida Walkthrough' />
