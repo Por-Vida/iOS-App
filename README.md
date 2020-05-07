@@ -3,7 +3,7 @@
 ## Table of Contents
 A narrated walkthrough of the final layout for the Por Vida Mobile App:
 
-[Here is the narrated video walkthrough, you'll have to download it.](https://github.com/Por-Vida/iOS-App/blob/master/Porvida.mp4)
+[Download for the narrated video walkthrough](https://github.com/Por-Vida/iOS-App/blob/master/Porvida.mp4)
 
 ## Overview
 
