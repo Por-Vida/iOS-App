@@ -1,6 +1,9 @@
 # *¡Por Vida! Mobile*
 
 ## Table of Contents
+A narrated walkthrough of the final layout for the Por Vida Mobile App:
+
+[Here is the narrated video walkthrough, you'll have to download it.](https://github.com/Por-Vida/iOS-App/blob/master/Porvida.mp4)
 
 ## Overview
 
@@ -141,10 +144,6 @@ Describe any challenges encountered while building the app.
 
 
 ## Video Walkthrough
-
-A narrated walkthrough of the final layout for the Por Vida Mobile App:
-
-[Here is the narrated video walkthrough, you'll have to download it.](https://github.com/Por-Vida/iOS-App/blob/master/Porvida.mp4)
 
 A walkthrough of the current layout for the Por Vida Mobile app:
 
